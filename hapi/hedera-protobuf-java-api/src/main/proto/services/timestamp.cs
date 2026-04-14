@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Hedera.Hashgraph.Proto.Services;
 
-namespace Hedera.Hashgraph.Proto.Services
+namespace System
 {
     public static class TimestampExtensions
     {
