@@ -12,13 +12,14 @@
 
 syntax = "proto3";
 
-package com.hedera.node.internal.network;
+package proto.network;
 
 // SPDX-License-Identifier: Apache-2.0
 import "block/stream/state_proof.proto";
 
-option java_package = "com.hedera.node.internal.network.legacy";
-// <<<pbj.java_package = "com.hedera.node.internal.network">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Network";
+option java_package = "com.hedera.hashgraph.proto.network";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.network">>>This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/timestamp.proto";
@@ -46,7 +47,7 @@ message PendingProof {
     /**
      * The timestamp of the pending block
      */
-    proto.Timestamp block_timestamp = 5;
+    proto.services.Timestamp block_timestamp = 5;
     /**
      * If set, the sibling hashes that could be used to prove the
      * previous block hash (in case it was also pending, and we
@@ -56,5 +57,5 @@ message PendingProof {
      * already been signed and this block proof will not be used
      * for any indirect proofs.
      */
-    repeated com.hedera.hapi.block.stream.MerkleSiblingHash sibling_hashes_from_prev_block_root = 6;
+    repeated proto.block.stream.MerkleSiblingHash sibling_hashes_from_prev_block_root = 6;
 }

@@ -21,7 +21,7 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.platform.event;
+package proto.platform.event;
 
 /*
  * Hedera Network Services Protobuf
@@ -40,9 +40,10 @@ package com.hedera.hapi.platform.event;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-option java_package = "com.hedera.hapi.platform.event.legacy";
-// <<<pbj.java_package = "com.hedera.hapi.platform.event">>> This comment is special code for setting PBJ Compiler java package
+ 
+option csharp_namespace = "Hedera.Hashgraph.Proto.Platform.Event";
+option java_package = "com.hedera.hashgraph.proto.platform.event";
+// <<<pbj.java_package = "com.hedera.hashgraph.platform.event">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -73,7 +74,8 @@ message EventDescriptor {
   int64 birth_round = 3;
 
   /**
-  * Previously used to indicate the generation of the event.
+  * The generation of the event.<br/>
+  * This value SHALL be **one greater** than the _maximum_ generation of all parents.<br/>
   */
-  reserved 17;
+  int64 generation = 17; // This field is temporary until birth_round migration is complete. Field number 17 chosen to avoid polluting cheaper 1 byte field numbers 1-16
 }

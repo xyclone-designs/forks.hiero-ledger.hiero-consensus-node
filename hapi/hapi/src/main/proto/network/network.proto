@@ -17,14 +17,15 @@
 
 syntax = "proto3";
 
-package com.hedera.node.internal.network;
+package proto.network;
 
 // SPDX-License-Identifier: Apache-2.0
 import "services/state/addressbook/node.proto";
 import "services/state/roster/roster.proto";
 
-option java_package = "com.hedera.node.internal.network.legacy";
-// <<<pbj.java_package = "com.hedera.node.internal.network">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Network";
+option java_package = "com.hedera.hashgraph.proto.network";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.network">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 
@@ -73,7 +74,7 @@ message NodeMetadata {
    * The node's entry in the current roster at the time of the network snapshot;
    * required to validate the network's ledger id if set.
    */
-  com.hedera.hapi.node.state.roster.RosterEntry roster_entry = 1;
+  proto.services.state.roster.RosterEntry roster_entry = 1;
 
   /**
   * A consensus node representation.
@@ -83,5 +84,5 @@ message NodeMetadata {
   * This field MUST represent a complete address book entry for a single node
   * in the network state.<br/>
   */
-  com.hedera.hapi.node.state.addressbook.Node node = 2;
+  proto.services.state.addressbook.Node node = 2;
 }

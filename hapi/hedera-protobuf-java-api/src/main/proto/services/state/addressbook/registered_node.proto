@@ -1,13 +1,14 @@
 syntax = "proto3";
 
-package com.hedera.hapi.node.state.addressbook;
+package proto.services.state.addressbook;
 
 // SPDX-License-Identifier: Apache-2.0
 import "services/basic_types.proto";
 import "services/registered_service_endpoint.proto";
 
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.addressbook">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.AddressBook";
+option java_package = "com.hedera.hashgraph.proto.services.state.addressbook";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.services.state.addressbook">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -45,7 +46,7 @@ message RegisteredNode {
      * This key MAY be a complex key containing `KeyList` or `ThresholdKey`
      * elements, but SHOULD NOT be a contract ID key.
      */
-    proto.Key admin_key = 2;
+    proto.services.Key admin_key = 2;
 
     /**
      * A short description of the node.
@@ -63,5 +64,5 @@ message RegisteredNode {
      * This list SHALL NOT be empty.<br/>
      * This list SHALL NOT contain more than `50` entries.
      */
-    repeated com.hedera.hapi.node.addressbook.RegisteredServiceEndpoint service_endpoint = 4;
+    repeated proto.services.RegisteredServiceEndpoint service_endpoint = 4;
 }

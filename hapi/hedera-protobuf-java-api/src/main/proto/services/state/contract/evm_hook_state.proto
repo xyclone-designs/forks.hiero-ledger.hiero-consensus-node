@@ -10,11 +10,12 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.node.state.hooks;
+package proto.services.state.contract;
 
 // SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.node.state.hooks.legacy";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.hooks">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.Contract";
+option java_package = "com.hedera.hashgraph.proto.services.state.contract";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.services.state.hooks">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -28,7 +29,7 @@ message EvmHookState {
   /**
    * For state proofs, the id of this hook.
    */
-  proto.HookId hook_id = 1;
+  proto.services.HookId hook_id = 1;
 
   /**
    * The type of the EVM hook.
@@ -38,18 +39,18 @@ message EvmHookState {
   /**
    * The type of the extension point the hook implements.
    */
-  com.hedera.hapi.node.hooks.HookExtensionPoint extension_point = 3;
+  proto.services.HookExtensionPoint extension_point = 3;
 
   /**
    * The id of the contract with this hook's bytecode.
    */
-  proto.ContractID hook_contract_id = 4;
+  proto.services.ContractID hook_contract_id = 4;
 
   /**
    * If set, a key that that can be used to remove or replace the hook; or (if
    * applicable, as with an EVM hook) perform transactions that customize the hook.
    */
-  proto.Key admin_key = 5;
+  proto.services.Key admin_key = 5;
 
   /**
    * For an EVM hook, its first storage key. Must be the minimal
@@ -98,7 +99,7 @@ message EvmHookSlotKey {
   /**
    * The id of the EVM hook that owns this slot.
    */
-  proto.HookId hook_id = 1;
+  proto.services.HookId hook_id = 1;
 
   /**
    * The EVM key of this slot. Must be the minimal bytes representation

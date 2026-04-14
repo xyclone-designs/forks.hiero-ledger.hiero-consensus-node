@@ -11,13 +11,29 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services.state.token;
 
-// SPDX-License-Identifier: Apache-2.0
+/*
+ * Copyright (C) 2023-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import "services/basic_types.proto";
 
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.token">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.Token";
+option java_package = "com.hedera.hashgraph.proto.services.state.token";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.state.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -44,14 +60,14 @@ message TokenRelation {
      * <p>
      * This SHALL identify the token involved in this association.
      */
-    TokenID token_id = 1;
+    proto.services.TokenID token_id = 1;
 
     /**
      * An account identifier.
      * <p>
      * This SHALL identify the account involved in this association.
      */
-    AccountID account_id = 2;
+    proto.services.AccountID account_id = 2;
 
     /**
      * The fungible token balance of this token relationship.
@@ -110,7 +126,7 @@ message TokenRelation {
      * This must be combined with the value of `account_id` to identify the
      * actual `TokenRelation` referenced.
      */
-    TokenID previous_token = 7;
+    proto.services.TokenID previous_token = 7;
 
     /**
      * The Token ID of the next entry in the associated Account's "virtual
@@ -119,5 +135,5 @@ message TokenRelation {
      * This must be combined with the value of `account_id` to identify the
      * actual `TokenRelation` referenced.
      */
-    TokenID next_token = 8;
+    proto.services.TokenID next_token = 8;
 }

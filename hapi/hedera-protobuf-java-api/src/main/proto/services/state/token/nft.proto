@@ -10,14 +10,30 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services.state.token;
 
-// SPDX-License-Identifier: Apache-2.0
+/*
+ * Copyright (C) 2023-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import "services/timestamp.proto";
 import "services/basic_types.proto";
 
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.token">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.Token";
+option java_package = "com.hedera.hashgraph.proto.services.state.token";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.state.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -37,7 +53,7 @@ message Nft {
     /**
      * The id of this NFT, consisting of a Token ID and serial number.
      */
-    NftID nft_id = 1;
+    proto.services.NftID nft_id = 1;
 
     /**
      * The account or contract id that owns this NFT.
@@ -45,14 +61,14 @@ message Nft {
      * If this NFT is owned by its token type's current treasury account,
      * this value SHALL be zero.
      */
-    AccountID owner_id = 2;
+    proto.services.AccountID owner_id = 2;
 
     /**
      * The account or contract id approved to spend this NFT.
      * <p>
      * If there is no approved spender, this value SHALL be null.
      */
-    AccountID spender_id = 3;
+    proto.services.AccountID spender_id = 3;
 
     /**
      * The consensus time of the TokenMint that created this NFT as
@@ -60,7 +76,7 @@ message Nft {
      * <p>
      * For this purpose, `epoch` SHALL be the UNIX epoch with 0 at `1970-01-01T00:00:00.000Z`.
      */
-    Timestamp mint_time = 4;
+    proto.services.Timestamp mint_time = 4;
 
     /**
      * The metadata bytes for this NFT. This is often a URI value.
@@ -75,7 +91,7 @@ message Nft {
      * <p>
      * If the owner of this NFT is the token treasury, this SHALL be unset.
      */
-    NftID owner_previous_nft_id = 6;
+    proto.services.NftID owner_previous_nft_id = 6;
 
     /**
      * The NFT ID of the next entry in the current owner's "virtual
@@ -83,5 +99,5 @@ message Nft {
      * <p>
      * If the owner of this NFT is the token treasury, this SHALL be unset.
      */
-    NftID owner_next_nft_id = 7;
+    proto.services.NftID owner_next_nft_id = 7;
 }

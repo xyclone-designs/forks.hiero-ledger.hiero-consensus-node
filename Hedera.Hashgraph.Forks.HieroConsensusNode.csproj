@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<LangVersion>14</LangVersion>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Google.Protobuf" Version="3.34.1" />
+		<PackageReference Include="Grpc" Version="2.46.6" />
+		<PackageReference Include="Grpc.Tools" Version="2.80.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<HapiProtoRoot>$(MSBuildProjectDirectory)\hapi\hapi\src\main\proto</HapiProtoRoot>
+		<HederaProtoRoot>$(MSBuildProjectDirectory)\hapi\hedera-protobuf-java-api\src\main\proto</HederaProtoRoot>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Protobuf GrpcServices="Both" ProtoRoot="$(HapiProtoRoot)" Include="$(HapiProtoRoot)\**\*.proto" AdditionalImportDirs="$(HederaProtoRoot)" />
+		<Protobuf GrpcServices="Both" ProtoRoot="$(HederaProtoRoot)" Include="$(HederaProtoRoot)\**\*.proto" AdditionalImportDirs="$(HapiProtoRoot)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Hedera.Hashgraph\Hedera.Hashgraph.csproj" />
+	</ItemGroup>
+
+</Project>

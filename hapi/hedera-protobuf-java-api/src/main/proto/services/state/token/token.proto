@@ -11,14 +11,30 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services.state.token;
 
-// SPDX-License-Identifier: Apache-2.0
+/*
+ * Copyright (C) 2023-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import "services/basic_types.proto";
 import "services/custom_fees.proto";
 
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.token">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.Token";
+option java_package = "com.hedera.hashgraph.proto.services.state.token";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.state.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -33,7 +49,7 @@ message Token {
     /**
      * A unique identifier for this token.
      */
-    TokenID token_id = 1;
+    proto.services.TokenID token_id = 1;
 
     /**
      * A human-readable name for this token.
@@ -99,7 +115,7 @@ message Token {
      * All token burn transactions for this token SHALL remove the tokens to be
      * burned from the treasury account.
      */
-    AccountID treasury_account_id = 6;
+    proto.services.AccountID treasury_account_id = 6;
 
     /**
      * Access control for general modification of this token.
@@ -250,7 +266,7 @@ message Token {
      * This field is OPTIONAL. If it is not set then renewal fees SHALL be
      * charged to the account identified by `treasury_account_id`.
      */
-    AccountID auto_renew_account_id = 18;
+    proto.services.AccountID auto_renew_account_id = 18;
 
     /**
      * A number of seconds by which the network should automatically extend

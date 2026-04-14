@@ -6,10 +6,11 @@
  */
 syntax = "proto3";
 
-package org.hiero.hapi.support.fees;
+package proto.fees;
 
-option java_package = "org.hiero.hapi.support.fees.protoc";
-// <<<pbj.java_package = "org.hiero.hapi.support.fees">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Fees";
+option java_package = "com.hedera.hashgraph.proto.fees";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.fees">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -179,7 +180,7 @@ message ServiceFeeDefinition {
    * defined by the specification for the service. Each name is unique within the file the
    * context of a specific service. The name must match `[A-Za-z].*[A-Za-z0-9]*`.
    */
-  proto.HederaFunctionality name = 1;
+  proto.services.HederaFunctionality name = 1;
   /**
    * The base fee price, in tinycents. There are 10^8 tinycents per cent USD.
    * The base fee, plus the extras, determine the service fee. The base_fee is

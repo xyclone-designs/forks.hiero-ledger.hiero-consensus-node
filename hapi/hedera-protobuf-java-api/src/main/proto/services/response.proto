@@ -11,11 +11,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.transaction">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.transaction">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/get_by_key.proto";
@@ -69,13 +85,13 @@ message Response {
          * <p>
          * > This query is no longer supported.
          */
-        GetByKeyResponse getByKey = 1;
+        proto.services.GetByKeyResponse getByKey = 1;
 
         /**
          * A response for a query requesting Contract, Account, and File
          * identifiers for a smart contract, given a Solidity identifier.
          */
-        GetBySolidityIDResponse getBySolidityID = 2;
+        proto.services.GetBySolidityIDResponse getBySolidityID = 2;
 
         /**
          * A response for a _local_ call to a query function of a given smart
@@ -84,19 +100,19 @@ message Response {
          * > This call is only performed on the local node. It is _not_ a
          * > network consensus result.
          */
-        ContractCallLocalResponse contractCallLocal = 3;
+        proto.services.ContractCallLocalResponse contractCallLocal = 3;
 
         /**
          * A response for a query requesting the current bytecode for
          * a smart contract.
          */
-        ContractGetBytecodeResponse contractGetBytecodeResponse = 5;
+        proto.services.ContractGetBytecodeResponse contractGetBytecodeResponse = 5;
 
         /**
          * A response for a query requesting detailed information about
          * a smart contract.
          */
-        ContractGetInfoResponse contractGetInfo = 4;
+        proto.services.ContractGetInfoResponse contractGetInfo = 4;
 
         /**
          * A response for a query requesting records of all transactions
@@ -104,26 +120,26 @@ message Response {
          * <p>
          * > This query is no longer supported.
          */
-        ContractGetRecordsResponse contractGetRecordsResponse = 6;
+        proto.services.ContractGetRecordsResponse contractGetRecordsResponse = 6;
 
         /**
          * A response for a query requesting the HBAR balance of an account
          * or contract.
          */
-        CryptoGetAccountBalanceResponse cryptogetAccountBalance = 7;
+        proto.services.CryptoGetAccountBalanceResponse cryptogetAccountBalance = 7;
 
         /**
          * A response for a query requesting records of all "recent"
          * transactions for which the specified account is the effective payer.
          */
-        CryptoGetAccountRecordsResponse cryptoGetAccountRecords = 8;
+        proto.services.CryptoGetAccountRecordsResponse cryptoGetAccountRecords = 8;
 
         /**
          * A response for a query requesting information for an account.<br/>
          * This query includes balance, but not allowances or token
          * relationships.
          */
-        CryptoGetInfoResponse cryptoGetInfo = 9;
+        proto.services.CryptoGetInfoResponse cryptoGetInfo = 9;
 
         /**
          * A response for a query requesting detail for a specific live hash
@@ -131,7 +147,7 @@ message Response {
          * <p>
          * > This query is no longer supported.
          */
-        CryptoGetLiveHashResponse cryptoGetLiveHash = 10;
+        proto.services.CryptoGetLiveHashResponse cryptoGetLiveHash = 10;
 
         /**
          * A response for a query requesting all the accounts that are proxy
@@ -139,60 +155,60 @@ message Response {
          * <p>
          * > This query is no longer supported.
          */
-        CryptoGetStakersResponse cryptoGetProxyStakers = 11;
+        proto.services.CryptoGetStakersResponse cryptoGetProxyStakers = 11;
 
         /**
          * A response for a query requesting the content of a file in the
          * Hedera File Service (HFS).
          */
-        FileGetContentsResponse fileGetContents = 12;
+        proto.services.FileGetContentsResponse fileGetContents = 12;
 
         /**
          * A response for a query requesting file metadata from the
          * Hedera File Service (HFS).
          */
-        FileGetInfoResponse fileGetInfo = 13;
+        proto.services.FileGetInfoResponse fileGetInfo = 13;
 
         /**
          * A response for a query requesting the post-consensus (final)
          * result of a transaction.
          */
-        TransactionGetReceiptResponse transactionGetReceipt = 14;
+        proto.services.TransactionGetReceiptResponse transactionGetReceipt = 14;
 
         /**
          * A response for a query requesting a transaction record; the detail
          * changes completed in response to a transaction.
          */
-        TransactionGetRecordResponse transactionGetRecord = 15;
+        proto.services.TransactionGetRecordResponse transactionGetRecord = 15;
 
         /**
          * A response for a query requesting a very recent transaction record.
          * <p>
          * > This query is no longer supported.
          */
-        TransactionGetFastRecordResponse transactionGetFastRecord = 16;
+        proto.services.TransactionGetFastRecordResponse transactionGetFastRecord = 16;
 
         /**
          * A response for a query requesting the current state of a topic for
          * the Hedera Consensus Service (HCS).
          */
-        ConsensusGetTopicInfoResponse consensusGetTopicInfo = 150;
+        proto.services.ConsensusGetTopicInfoResponse consensusGetTopicInfo = 150;
 
         /**
          * A response for a query requesting the deployed versions of Hedera
          * Services and the API definitions in semantic version format
          */
-        NetworkGetVersionInfoResponse networkGetVersionInfo = 151;
+        proto.services.NetworkGetVersionInfoResponse networkGetVersionInfo = 151;
 
         /**
          * A response for a query requesting metadata for a specific Token.
          */
-        TokenGetInfoResponse tokenGetInfo = 152;
+        proto.services.TokenGetInfoResponse tokenGetInfo = 152;
 
         /**
          * A response for a query requesting detail for a scheduled transaction.
          */
-        ScheduleGetInfoResponse scheduleGetInfo = 153;
+        proto.services.ScheduleGetInfoResponse scheduleGetInfo = 153;
 
         /**
          * A response for a query requesting detail for a subset of individual
@@ -200,14 +216,14 @@ message Response {
          * The requested tokens are selected by a list index, which is based
          * on the order in which the tokens were added to the account.
          */
-        TokenGetAccountNftInfosResponse tokenGetAccountNftInfos = 154;
+        proto.services.TokenGetAccountNftInfosResponse tokenGetAccountNftInfos = 154;
 
         /**
          * A response for a query requesting detail for a specific
          * non-fungible/unique token selected by both token identifier and
          * serial number.
          */
-        TokenGetNftInfoResponse tokenGetNftInfo = 155;
+        proto.services.TokenGetNftInfoResponse tokenGetNftInfo = 155;
 
         /**
          * A response for a query requesting detail for a subset of individual
@@ -215,7 +231,7 @@ message Response {
          * The requested tokens are selected by a list index, which is based
          * on the order in which the tokens were minted.
          */
-        TokenGetNftInfosResponse tokenGetNftInfos = 156;
+        proto.services.TokenGetNftInfosResponse tokenGetNftInfos = 156;
 
         /**
          * A response for a query requesting the time, in nanoseconds, spent
@@ -223,7 +239,7 @@ message Response {
          * <p>
          * > This query is no longer supported.
          */
-        NetworkGetExecutionTimeResponse networkGetExecutionTime = 157;
+        proto.services.NetworkGetExecutionTimeResponse networkGetExecutionTime = 157;
 
         /**
          * A response for a query requesting detail information
@@ -232,6 +248,6 @@ message Response {
          * This query is a privileged query and "system" account authorization
          * is REQUIRED for this query.
          */
-        GetAccountDetailsResponse accountDetails = 158;
+        proto.services.GetAccountDetailsResponse accountDetails = 158;
     }
 }

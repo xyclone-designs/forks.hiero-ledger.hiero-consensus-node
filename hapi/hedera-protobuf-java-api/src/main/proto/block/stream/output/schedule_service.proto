@@ -33,11 +33,27 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.block.stream.output;
+package proto.block.stream.output;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.block.stream.output.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.stream.output">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+option csharp_namespace = "Hedera.Hashgraph.Proto.Block.Stream.Output";
+option java_package = "com.hedera.hashgraph.proto.block.stream.output";
+// <<<pbj.java_package = "proto.block.stream.output">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -59,7 +75,7 @@ message CreateScheduleOutput {
      * is identical to the one that was attempted to be created. For any
      * other status, this value SHALL NOT be set.
      */
-    proto.ScheduleID schedule_id = 1;
+    proto.services.ScheduleID schedule_id = 1;
 
     /**
      * A scheduled transaction identifier.
@@ -73,7 +89,7 @@ message CreateScheduleOutput {
      * was signed by sufficient keys to meet the signature requirements
      * for the scheduled child transaction immediately.
      */
-    proto.TransactionID scheduled_transaction_id = 2;
+    proto.services.TransactionID scheduled_transaction_id = 2;
 }
 
 /**
@@ -103,5 +119,5 @@ message SignScheduleOutput {
      * was signed by sufficient additional keys to meet the signature
      * requirements for the scheduled child transaction.
      */
-    proto.TransactionID scheduled_transaction_id = 1;
+    proto.services.TransactionID scheduled_transaction_id = 1;
 }

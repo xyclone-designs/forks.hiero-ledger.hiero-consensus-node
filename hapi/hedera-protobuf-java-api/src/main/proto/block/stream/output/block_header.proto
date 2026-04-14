@@ -12,11 +12,27 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.block.stream.output;
+package proto.block.stream.output;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.block.stream.output.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.stream.output">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+option csharp_namespace = "Hedera.Hashgraph.Proto.Block.Stream.Output";
+option java_package = "com.hedera.hashgraph.proto.block.stream.output";
+// <<<pbj.java_package = "proto.block.stream.output">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -40,21 +56,18 @@ import "services/timestamp.proto";
  * data efficiency.
  */
 message BlockHeader {
-
     /**
      * A version of the HAPI specification.<br/>
      * This is the API version that was used to serialize the block.
      */
-    proto.SemanticVersion hapi_proto_version = 1;
+    proto.services.SemanticVersion hapi_proto_version = 1;
 
     /**
      * A version of the consensus node software.<br/>
      * This is the software version that executed the transactions
-     * within this block. For historical converted record stream blocks this
-     * will be unset which may show as version 0.0.0. That is because no
-     * software was recorded in the record stream at that time.
+     * within this block.
      */
-    proto.SemanticVersion software_version = 2;
+    proto.services.SemanticVersion software_version = 2;
 
     /**
      * A block number for this block.
@@ -86,15 +99,13 @@ message BlockHeader {
      *      is no previous round, the timestamp SHALL be the median of
      *      the judge created timestamps for this round.</li>
      * </ul>
-     * For historical converted record stream blocks, this is the consensus
-     * timestamp of the first transaction in the record file.
      */
-    proto.Timestamp block_timestamp = 4;
+    proto.services.Timestamp block_timestamp = 4;
 
     /**
      * A hash algorithm used for this block, including the block proof.
      * <p>
      * This SHOULD always be `SHA2_384`, currently.
      */
-    proto.BlockHashAlgorithm hash_algorithm = 5;
+    proto.services.BlockHashAlgorithm hash_algorithm = 5;
 }

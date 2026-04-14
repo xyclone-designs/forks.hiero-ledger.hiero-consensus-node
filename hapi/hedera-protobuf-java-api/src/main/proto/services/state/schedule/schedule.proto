@@ -10,16 +10,32 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services.state.schedule;
 
-// SPDX-License-Identifier: Apache-2.0
-import "services/basic_types.proto";
+/*
+ * Copyright (C) 2023-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
 import "services/timestamp.proto";
+import "services/basic_types.proto";
 import "services/schedulable_transaction_body.proto";
 import "services/transaction.proto";
 
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.schedule">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.Schedule";
+option java_package = "com.hedera.hashgraph.proto.services.state.schedule";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.state.schedule">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -36,7 +52,7 @@ message Schedule {
      * <p>
      * This value SHALL be unique within the network.
      */
-    ScheduleID schedule_id = 1;
+    proto.services.ScheduleID schedule_id = 1;
 
     /**
      * A flag indicating this schedule is deleted.
@@ -82,7 +98,7 @@ message Schedule {
      * This SHALL be the account that submitted the original
      * ScheduleCreate transaction.
      */
-    AccountID scheduler_account_id = 6;
+    proto.services.AccountID scheduler_account_id = 6;
 
     /**
      * The explicit payer account for the scheduled transaction.
@@ -90,7 +106,7 @@ message Schedule {
      * If set, this account SHALL be added to the accounts that MUST sign the
      * schedule before it may execute.
      */
-    AccountID payer_account_id = 7;
+    proto.services.AccountID payer_account_id = 7;
 
     /**
      * The admin key for this schedule.
@@ -107,7 +123,7 @@ message Schedule {
      * This MUST be set, and SHALL be copied from the `TransactionID` of
      * the original `schedule_create` transaction.
      */
-    Timestamp schedule_valid_start = 9;
+    proto.services.Timestamp schedule_valid_start = 9;
 
     /**
      * The requested expiration time of the schedule if provided by the user.
@@ -143,7 +159,7 @@ message Schedule {
      * final required signature, or, if long-term schedule execution is enabled,
      * at the requested execution time.
      */
-    Timestamp resolution_time = 12;
+    proto.services.Timestamp resolution_time = 12;
 
     /**
      * The scheduled transaction to execute.
@@ -151,7 +167,7 @@ message Schedule {
      * This MUST be one of the transaction types permitted in the current value
      * of the `schedule.whitelist` in the dynamic network configuration.
      */
-    SchedulableTransactionBody scheduled_transaction = 13;
+    proto.services.SchedulableTransactionBody scheduled_transaction = 13;
 
     /**
      * The full transaction that created this schedule.
@@ -160,7 +176,7 @@ message Schedule {
      * also the source of the parent transaction ID, from which the child
      * transaction ID is derived when the `scheduled_transaction` is executed.
      */
-    TransactionBody original_create_transaction = 14;
+    proto.services.TransactionBody original_create_transaction = 14;
 
     /**
      * All of the "primitive" keys that have already signed this schedule.
@@ -179,7 +195,7 @@ message Schedule {
      * execution, this list contains sufficient public keys to satisfy the
      * full requirements for signature on that transaction.
      */
-    repeated Key signatories = 15;
+    repeated proto.services.Key signatories = 15;
 }
 
 /**

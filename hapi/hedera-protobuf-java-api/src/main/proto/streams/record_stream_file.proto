@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package proto;
+package proto.streams;
 
 /*-
  * ‌
@@ -22,14 +22,15 @@ package proto;
  * ‍
  */
 
-option java_package = "com.hedera.services.stream.proto";
-// <<<pbj.java_package = "com.hedera.hapi.streams">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Streams";
+option java_package = "com.hedera.hashgraph.proto.streams";
+// <<<pbj.java_package = "com.hedera.hashgraph.streams">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
+import "streams/hash_object.proto";
 import "services/basic_types.proto";
 import "services/transaction.proto";
 import "services/transaction_record.proto";
-import "streams/hash_object.proto";
 
 /**
  * RecordStreamFile is used to serialize all RecordStreamItems that are part of the
@@ -40,7 +41,7 @@ message RecordStreamFile {
   /**
    * Version of HAPI that was used to serialize the file.
    */
-  SemanticVersion hapi_proto_version = 1;
+  proto.services.SemanticVersion hapi_proto_version = 1;
 
   /**
    * Running Hash of all RecordStreamItems before writing this file.
@@ -74,8 +75,8 @@ message RecordStreamFile {
  * which are already defined protobuf messages.
  */
 message RecordStreamItem {
-  Transaction transaction = 1;
-  TransactionRecord record = 2;
+  proto.services.Transaction transaction = 1;
+  proto.services.TransactionRecord record = 2;
 }
 
 /**

@@ -12,11 +12,12 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.block.stream;
+package proto.block.stream;
 
-// spdx-license-identifier: apache-2.0
-option java_package = "com.hedera.hapi.block.stream.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.stream">>> this comment is special code for setting pbj compiler java package
+// SPDX-License-Identifier: Apache-2.0
+option csharp_namespace = "Hedera.Hashgraph.Proto.Block.Stream";
+option java_package = "com.hedera.hashgraph.proto.block.stream";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.stream">>> this comment is special code for setting pbj compiler java package
 option java_multiple_files = true;
 
 /**

@@ -9,15 +9,31 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.platform.state;
+package proto.platform.state;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.platform.state.legacy";
-// <<<pbj.java_package = "com.hedera.hapi.platform.state">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+option csharp_namespace = "Hedera.Hashgraph.Proto.Platform.State";
+option java_package = "com.hedera.hashgraph.proto.platform.state";
+// <<<pbj.java_package = "com.hedera.hashgraph.platform.state">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
-import "services/basic_types.proto";
 import "services/timestamp.proto";
+import "services/basic_types.proto";
 
 /**
  * The current state of platform consensus.<br/>
@@ -35,7 +51,7 @@ message PlatformState {
      * <p>
      * This SHALL be the software version that created this state.
      */
-    proto.SemanticVersion creation_software_version = 1;
+    proto.services.SemanticVersion creation_software_version = 1;
 
     /**
      * A number of non-ancient rounds.
@@ -58,21 +74,13 @@ message PlatformState {
      * If a freeze is currently scheduled, this MUST be set, and MUST
      * match the timestamp requested for that freeze.
      */
-    proto.Timestamp freeze_time = 4;
+    proto.services.Timestamp freeze_time = 4;
 
     /**
      * A timestamp for the last time a freeze was performed.<br/>
      * If not set, there has never been a freeze.
      */
-    proto.Timestamp last_frozen_time = 5;
-
-    /**
-     * The number of the latest round that was a freeze round. If this round
-     * is a freeze round, then the value is the same as the current round. It
-     * is set after executing all transactions in this round. <br/>
-     * If there has never been a freeze round, this SHALL be zero.<br/>
-     */
-    uint64 latest_freeze_round = 6;
+    proto.services.Timestamp last_frozen_time = 5;
 
     // Fields below are to be deprecated in the foreseeable future.
 
@@ -86,19 +94,31 @@ message PlatformState {
      bytes legacy_running_event_hash = 10000 [deprecated = true];
 
     /**
-     * Previously used to indicate the lowest judge generation before birth round mode was enabled.
+     * A consensus generation.<br/>
+     * The lowest judge generation before birth round mode was enabled.
+     * <p>
+     * This SHALL be `MAX_UNSIGNED` if birth round mode has not yet been enabled.
      */
-    reserved 10001;
+    uint64 lowest_judge_generation_before_birth_round_mode = 10001 [deprecated = true];
 
     /**
-     * Previously used to indicate the last round before the birth round mode was enabled.
+     * A consensus round.<br/>
+     * The last round before the birth round mode was enabled.
+     * Will be removed after the birth round migration.
+     * <p>
+     * This SHALL be `MAX_UNSIGNED` if birth round mode has not yet been enabled.
      */
-    reserved 10002;
+    uint64 last_round_before_birth_round_mode = 10002 [deprecated = true];
 
     /**
-     * Previously used to indicate the software version that enabled birth round mode.
-     */
-    reserved 10003;
+     * A consensus node semantic version.<br/>
+     * The software version that enabled birth round mode.
+     * <p>
+     * This SHALL be unset if birth round migration has not yet happened.<br/>
+     * If birth round migration is complete, this SHALL be the _first_ software
+     * version that enabled birth round mode.
+    */
+    proto.services.SemanticVersion first_version_in_birth_round_mode = 10003 [deprecated = true];
 
     reserved 10004;
     reserved "address_book";
@@ -122,9 +142,13 @@ message ConsensusSnapshot {
      */
     uint64 round = 1;
     /**
-     * Previously used to be judge hashes, replaced by judge ids which contain creator node ID and judge hash.<br/>
+     * A list of SHA-384 hash values.<br/>
+     * The hashes of all judges for this round.
+     * <p>
+     * This list SHALL be ordered by creator ID.<br/>
+     * This list MUST be deterministically ordered.
      */
-    reserved 2;
+    repeated bytes judge_hashes = 2 [deprecated = true];
 
     /**
      * A list of minimum judge information entries.<br/>
@@ -153,7 +177,7 @@ message ConsensusSnapshot {
      * "wall clock" timestamp.<br/>
      * Consensus Timestamps SHALL always increase.
      */
-    proto.Timestamp consensus_timestamp = 5;
+    proto.services.Timestamp consensus_timestamp = 5;
 
     /*
      * A list of judge creator ids and its hashes in a round.<br/>
@@ -188,11 +212,14 @@ message MinimumJudgeInfo {
     uint64 round = 1;
 
     /**
-     * This is a minimum birth round for all judges for a given round.
+     * This is a minimum ancient threshold for all judges for a given round.
+     * The value should be interpreted as a generation if the birth
+     * round migration is not yet completed, and a birth round thereafter.
      * <p>
-     * This SHALL reflect the relevant minimum birth round
+     * This SHALL reflect the relevant minimum threshold, whether
+     * generation-based or birth-round-based.
      */
-    uint64 minimum_judge_birth_round = 2;
+    uint64 minimum_judge_ancient_threshold = 2;
 }
 
 /**
@@ -204,33 +231,4 @@ message NodeId {
    * A numeric identifier.
    */
   uint64 id = 1;
-}
-
-/**
-  * A set of signatures from consensus nodes.<br/>
-  * This message contains a list of node ID and signature pairs.
- */
-message SigSet {
-    /**
-     * A list of node ID and signature pairs.
-     */
-    repeated NodeIdSignaturePair nodeIdSignaturePairs = 1;
-}
-/**
-  * A pair of node ID and signature bytes.<br/>
-  * This message contains a node ID, signature type, and signature bytes.
- */
-message NodeIdSignaturePair {
-    /**
-      * A node identifier.<br/>
-     */
-    int64 nodeId = 1;
-    /**
-      * A signature type.<br/>
-     */
-    int32 signatureType = 2;
-    /**
-      * Signature bytes.<br/>
-     */
-    bytes signatureBytes = 3;
 }

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package proto;
+package proto.streams;
 
 /*-
  * ‌
@@ -22,14 +22,13 @@ package proto;
  * ‍
  */
 
-option java_package = "com.hedera.services.stream.proto";
-// <<<pbj.java_package = "com.hedera.hapi.streams">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Streams";
+option java_package = "com.hedera.hashgraph.proto.streams";
+// <<<pbj.java_package = "com.hedera.hashgraph.streams">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
-import "services/basic_types.proto";
-
 import "google/protobuf/wrappers.proto";
-
+import "services/basic_types.proto";
 
 message ContractStateChanges {
   repeated ContractStateChange contract_state_changes = 1;
@@ -43,7 +42,7 @@ message ContractStateChange {
   /**
    * The contract to which the storage changes apply to
    */
-  ContractID contract_id = 1;
+  proto.services.ContractID contract_id = 1;
 
   /**
    * The list of storage changes.

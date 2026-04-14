@@ -13,16 +13,31 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.contract">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.contract">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
 import "services/duration.proto";
-import "services/hook_types.proto";
 import "services/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
@@ -47,7 +62,7 @@ message ContractUpdateTransactionBody {
      * The contact ID that identifies the smart contract to be updated.<br/>
      * This field MUST be set, and MUST NOT be a default ID (`0.0.0`).
      */
-    ContractID contractID = 1;
+    proto.services.ContractID contractID = 1;
 
     /**
      * If set, modify the time at which this contract will expire.<br/>
@@ -59,7 +74,7 @@ message ContractUpdateTransactionBody {
      * value, the transaction SHALL fail with response
      * code `EXPIRATION_REDUCTION_NOT_ALLOWED`.
      */
-    Timestamp expirationTime = 2;
+    proto.services.Timestamp expirationTime = 2;
 
     /**
      * If set, modify the key that authorizes updates to the contract.
@@ -80,7 +95,7 @@ message ContractUpdateTransactionBody {
      * This field is unused and SHALL NOT modify the contract state.<br/>
      * The id of an account to which the contract is proxy staked
      */
-    AccountID proxyAccountID = 6 [deprecated = true];
+    proto.services.AccountID proxyAccountID = 6 [deprecated = true];
 
     /**
      * If set, modify the duration added to expiration time by each
@@ -93,7 +108,7 @@ message ContractUpdateTransactionBody {
      * Previously, an ID of a file containing the bytecode of the Solidity
      * transaction that created this contract.
      */
-    FileID fileID = 8 [deprecated = true];
+    proto.services.FileID fileID = 8 [deprecated = true];
 
     // This should be condensed to just a field instead of a oneof and field 9 reserved.
     oneof memoField {
@@ -133,7 +148,7 @@ message ContractUpdateTransactionBody {
      * If this field is set to a default AccountID value (`0.0.0`), any
      * pre-existing `auto_renew_account_id` value SHALL be removed on success.
      */
-    AccountID auto_renew_account_id = 12;
+    proto.services.AccountID auto_renew_account_id = 12;
 
     oneof staked_id {
         /**
@@ -146,7 +161,7 @@ message ContractUpdateTransactionBody {
          * If this field is set to a default AccountID value (`0.0.0`), any
          * pre-existing `staked_account_id` value SHALL be removed on success.
          */
-        AccountID staked_account_id = 13;
+        proto.services.AccountID staked_account_id = 13;
 
         /**
          * A node identifier.<br/>
@@ -179,14 +194,4 @@ message ContractUpdateTransactionBody {
      * without reward.
      */
     google.protobuf.BoolValue decline_reward = 15;
-
-    /**
-     * The ids the hooks to delete from the contract.
-     */
-    repeated int64 hook_ids_to_delete = 16;
-
-    /**
-     * The hooks to create for the contract.
-     */
-    repeated com.hedera.hapi.node.hooks.HookCreationDetails hook_creation_details = 17;
 }

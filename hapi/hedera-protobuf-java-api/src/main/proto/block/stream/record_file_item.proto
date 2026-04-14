@@ -13,18 +13,17 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.block.stream;
+package proto.block.stream;
 
 // SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.block.stream.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.stream">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Block.Stream";
+option java_package = "com.hedera.hashgraph.proto.block.stream";
+// <<<pbj.java_package = "com.hedera.hashgraph.block.stream">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/timestamp.proto";
 import "streams/sidecar_file.proto";
 import "streams/record_stream_file.proto";
-import "services/transaction_record.proto";
-import "services/transaction_contents.proto";
 
 /**
  * A Block Item for record files.
@@ -111,7 +110,7 @@ message RecordFileItem {
      * The consensus time the record file was produced for.<br/>
      * This comes from the record file name.
      */
-    proto.Timestamp creation_time = 1;
+    proto.services.Timestamp creation_time = 1;
 
     /**
      * The contents of a record file.<br/>
@@ -120,13 +119,13 @@ message RecordFileItem {
      * conversion is lossless and reversible. It will need to be reversed to
      * validate the block with a `SignedRecordFileProof`.
      */
-    proto.RecordStreamFile record_file_contents = 2;
+    proto.streams.RecordStreamFile record_file_contents = 2;
 
     /**
      * The contents of sidecar files for this block.<br/>
      * Each block can have zero or more sidecar files.
      */
-    repeated proto.SidecarFile sidecar_file_contents = 3;
+    repeated proto.streams.SidecarFile sidecar_file_contents = 3;
 
     /**
      * Amendments to the record file data.<br/>
@@ -149,5 +148,5 @@ message RecordFileItem {
      * the existing item if one is found.<br/>
      * If you want the original raw data, you can ignore this field.
      */
-    repeated proto.RecordStreamItem amendments = 4;
+    repeated proto.streams.RecordStreamItem amendments = 4;
 }

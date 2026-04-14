@@ -15,11 +15,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.transaction">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.transaction">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/get_by_key.proto";
@@ -68,7 +84,7 @@ message Query {
         /**
          * Get all entities associated with a given key.
          */
-        GetByKeyQuery getByKey = 1;
+        proto.services.GetByKeyQuery getByKey = 1;
 
         /**
          * Get an Hedera identifier associated with an identifier in EVM
@@ -77,7 +93,7 @@ message Query {
          * file, or contract identifier to pass to a system contract or
          * precompile.
          */
-        GetBySolidityIDQuery getBySolidityID = 2;
+        proto.services.GetBySolidityIDQuery getBySolidityID = 2;
 
         /**
          * Call a function of a smart contract.<br/>
@@ -85,17 +101,17 @@ message Query {
          * submitted, and is much less expensive than a `contractCall`
          * transaction.
          */
-        ContractCallLocalQuery contractCallLocal = 3;
+        proto.services.ContractCallLocalQuery contractCallLocal = 3;
 
         /**
          * Get information about a smart contract.
          */
-        ContractGetInfoQuery contractGetInfo = 4;
+        proto.services.ContractGetInfoQuery contractGetInfo = 4;
 
         /**
          * Get runtime bytecode used by a smart contract.
          */
-        ContractGetBytecodeQuery contractGetBytecode = 5;
+        proto.services.ContractGetBytecodeQuery contractGetBytecode = 5;
 
         /**
          * This query is unsupported and SHALL fail.<br/>
@@ -103,24 +119,24 @@ message Query {
          * <p>
          * Get Records of a smart contract.
          */
-        ContractGetRecordsQuery ContractGetRecords = 6 [deprecated = true];
+        proto.services.ContractGetRecordsQuery ContractGetRecords = 6 [deprecated = true];
 
         /**
          * Get the current HBAR balance of an Hedera account or smart contract.
          */
-        CryptoGetAccountBalanceQuery cryptogetAccountBalance = 7;
+        proto.services.CryptoGetAccountBalanceQuery cryptogetAccountBalance = 7;
 
         /**
          * Get records of all "recent" transactions for which a specified
          * account is the effective payer.
          */
-        CryptoGetAccountRecordsQuery cryptoGetAccountRecords = 8;
+        proto.services.CryptoGetAccountRecordsQuery cryptoGetAccountRecords = 8;
 
         /**
          * Get information about an account, including the balance.<br/>
          * This does not get the list of account records.
          */
-        CryptoGetInfoQuery cryptoGetInfo = 9;
+        proto.services.CryptoGetInfoQuery cryptoGetInfo = 9;
 
         /**
          * This query is unsupported and SHALL fail.<br/>
@@ -128,7 +144,7 @@ message Query {
          * <p>
          * Get a single livehash from a single account, if present.
          */
-        CryptoGetLiveHashQuery cryptoGetLiveHash = 10 [deprecated = true];
+        proto.services.CryptoGetLiveHashQuery cryptoGetLiveHash = 10 [deprecated = true];
 
         /**
          * This query is unsupported and SHALL fail.<br/>
@@ -136,61 +152,61 @@ message Query {
          * <p>
          * Get all the accounts that are proxy staking to this account.
          */
-        CryptoGetStakersQuery cryptoGetProxyStakers = 11 [deprecated = true];
+        proto.services.CryptoGetStakersQuery cryptoGetProxyStakers = 11 [deprecated = true];
 
         /**
          * Get the content of a file.
          */
-        FileGetContentsQuery fileGetContents = 12;
+        proto.services.FileGetContentsQuery fileGetContents = 12;
 
         /**
          * Get metadata for a file.
          */
-        FileGetInfoQuery fileGetInfo = 13;
+        proto.services.FileGetInfoQuery fileGetInfo = 13;
 
         /**
          * Get a receipt for a transaction.<br/>
          * This only returns a receipt if the transaction is "recent", which
          * is typically within the previous 180 seconds (3 minutes).
          */
-        TransactionGetReceiptQuery transactionGetReceipt = 14;
+        proto.services.TransactionGetReceiptQuery transactionGetReceipt = 14;
 
         /**
          * Get a record for a transaction.
          * This only returns a record if the transaction is "available", which
          * is typically within the previous 1 hour.
          */
-        TransactionGetRecordQuery transactionGetRecord = 15;
+        proto.services.TransactionGetRecordQuery transactionGetRecord = 15;
 
         /**
          * Get a record for a transaction.
          * This only returns a record if the transaction is "recent", which
          * is typically within the previous 180 seconds (3 minutes).
          */
-        TransactionGetFastRecordQuery transactionGetFastRecord = 16;
+        proto.services.TransactionGetFastRecordQuery transactionGetFastRecord = 16;
 
         /**
          * Get metadata for a consensus topic.
          */
-        ConsensusGetTopicInfoQuery consensusGetTopicInfo = 50;
+        proto.services.ConsensusGetTopicInfoQuery consensusGetTopicInfo = 50;
 
         /**
          * Get the versions of Hedera Services and the HAPI API deployed on
          * the responding consensus node.
          */
-        NetworkGetVersionInfoQuery networkGetVersionInfo = 51;
+        proto.services.NetworkGetVersionInfoQuery networkGetVersionInfo = 51;
 
         /**
          * Get metadata for a token.
          */
-        TokenGetInfoQuery tokenGetInfo = 52;
+        proto.services.TokenGetInfoQuery tokenGetInfo = 52;
 
         /**
          * Get metadata for a schedule.<br/>
          * A schedule is a request to execute a transaction at a future
          * time.
          */
-        ScheduleGetInfoQuery scheduleGetInfo = 53;
+        proto.services.ScheduleGetInfoQuery scheduleGetInfo = 53;
 
         /**
          * This query is unsupported and SHALL fail.<br/>
@@ -198,13 +214,13 @@ message Query {
          * <p>
          * Get a list of non-fungible/unique tokens associated with an account.
          */
-        TokenGetAccountNftInfosQuery tokenGetAccountNftInfos = 54 [deprecated = true];
+        proto.services.TokenGetAccountNftInfosQuery tokenGetAccountNftInfos = 54 [deprecated = true];
 
         /**
          * Get metadata for a specific, serial numbered, non-fungible/unique
          * token (NFT).
          */
-        TokenGetNftInfoQuery tokenGetNftInfo = 55;
+        proto.services.TokenGetNftInfoQuery tokenGetNftInfo = 55;
 
         /**
          * This query is unsupported and SHALL fail.<br/>
@@ -213,7 +229,7 @@ message Query {
          * Get metadata for all non-fungible/unique tokens (NFTs) of a single
          * type within a range of indices (0-based count of minted tokens).
          */
-        TokenGetNftInfosQuery tokenGetNftInfos = 56 [deprecated = true];
+        proto.services.TokenGetNftInfosQuery tokenGetNftInfos = 56 [deprecated = true];
 
         /**
          * This query is unsupported and SHALL fail.<br/>
@@ -221,11 +237,11 @@ message Query {
          * <p>
          * Get the execution time for a recent transaction.
          */
-        NetworkGetExecutionTimeQuery networkGetExecutionTime = 57 [deprecated = true];
+        proto.services.NetworkGetExecutionTimeQuery networkGetExecutionTime = 57 [deprecated = true];
 
         /**
          * Get detail metadata for an account.
          */
-        GetAccountDetailsQuery accountDetails = 58;
+        proto.services.GetAccountDetailsQuery accountDetails = 58;
     }
 }

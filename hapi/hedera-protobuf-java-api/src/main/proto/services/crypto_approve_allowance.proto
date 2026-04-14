@@ -15,11 +15,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.token">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -97,14 +113,14 @@ message CryptoAllowance {
      * This is the account identifier of the account granting an allowance
      * for the `spender` to transfer tokens held by this account.
      */
-    AccountID owner = 1;
+    proto.services.AccountID owner = 1;
 
     /**
      * A spender account identifier.<br/>
      * This is the account identifier of the account permitted to transfer
      * tokens held by the `owner`.
      */
-    AccountID spender = 2;
+    proto.services.AccountID spender = 2;
 
     /**
      * An amount of tinybar (10<sup>-8</sup> HBAR).<br/>
@@ -139,21 +155,21 @@ message NftAllowance {
      * <p>
      * The identified token type MUST be a non-fungible/unique token.
      */
-    TokenID tokenId = 1;
+    proto.services.TokenID tokenId = 1;
 
     /**
      * An owner account identifier.<br/>
      * This is the account identifier of the account granting an allowance
      * for the `spender` to transfer tokens held by this account.
      */
-    AccountID owner = 2;
+    proto.services.AccountID owner = 2;
 
     /**
      * A spender account identifier.<br/>
      * This is the account identifier of the account permitted to transfer
      * tokens held by the `owner`.
      */
-    AccountID spender = 3;
+    proto.services.AccountID spender = 3;
 
     /**
      * A list of token serial numbers.<br/>
@@ -173,7 +189,7 @@ message NftAllowance {
      * such tokens acquired in the future, unless the
      * allowance is `delete`d.
      */
-    google.protobuf.BoolValue approved_for_all = 5;
+     google.protobuf.BoolValue approved_for_all = 5;
 
     /**
      * A spender-owner account identifier.<br/>
@@ -190,7 +206,7 @@ message NftAllowance {
      * all tokens of the type identified by the `tokenId` field.<br/>
      * If this value is set, the `approved_for_all` flag MUST be `false`.
      */
-    AccountID delegating_spender = 6;
+    proto.services.AccountID delegating_spender = 6;
 }
 
 /**
@@ -214,21 +230,21 @@ message TokenAllowance {
      * <p>
      * The identified token type MUST be a fungible/common token.
      */
-    TokenID tokenId = 1;
+    proto.services.TokenID tokenId = 1;
 
     /**
      * An owner account identifier.<br/>
      * This is the account identifier of the account granting an allowance
      * for the `spender` to transfer tokens held by this account.
      */
-    AccountID owner = 2;
+    proto.services.AccountID owner = 2;
 
     /**
      * A spender account identifier.<br/>
      * This is the account identifier of the account permitted to transfer
      * tokens held by the `owner`.
      */
-    AccountID spender = 3;
+    proto.services.AccountID spender = 3;
 
     /**
      * An amount of fractional tokens (10<sup>-decimals</sup> tokens).<br/>

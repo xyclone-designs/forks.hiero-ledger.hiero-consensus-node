@@ -1,12 +1,28 @@
 syntax = "proto3";
 
-package com.hedera.hapi.node.state.addressbook;
+package proto.services.state.addressbook;
 
-// SPDX-License-Identifier: Apache-2.0
+/*
+ * Copyright (C) 2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import "services/basic_types.proto";
 
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.addressbook">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.AddressBook";
+option java_package = "com.hedera.hashgraph.proto.services.state.addressbook";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.state.addressbook">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -38,7 +54,7 @@ message Node {
      * This account SHALL be paid the node portion of transaction fees
      * for transactions submitted by this node.
      */
-    proto.AccountID account_id = 2;
+    proto.services.AccountID account_id = 2;
 
     /**
      * A short description of the node.
@@ -64,7 +80,7 @@ message Node {
      * all consensus nodes.<br/>
      * All other entries SHALL be reserved for future use.
      */
-    repeated proto.ServiceEndpoint gossip_endpoint = 4;
+    repeated ServiceEndpoint gossip_endpoint = 4;
 
     /**
      * A list of service endpoints for client calls.
@@ -77,7 +93,7 @@ message Node {
      * This list SHALL NOT be empty.<br/>
      * This list SHALL NOT contain more than `8` entries.
      */
-    repeated proto.ServiceEndpoint service_endpoint = 5;
+    repeated ServiceEndpoint service_endpoint = 5;
 
     /**
      * A certificate used to sign gossip events.
@@ -135,7 +151,7 @@ message Node {
      * This field MUST contain a valid `Key` value.<br/>
      * This field is REQUIRED and MUST NOT be set to an empty `KeyList`.
      */
-    proto.Key admin_key = 10;
+    Key admin_key = 10;
 
     /**
      * A flag indicating this node declines node rewards distributed at
@@ -157,18 +173,5 @@ message Node {
      * This field MUST be updated if the gRPC-Web endpoint changes.<br/>
      * This field SHALL enable frontend clients to avoid hard-coded proxy endpoints.
      */
-    proto.ServiceEndpoint grpc_proxy_endpoint = 12;
-
-    /**
-     * A list of registered nodes operated by the same entity as this node.<br/>
-     * This value may contain a list of "registered nodes" (as described in
-     * HIP-1137) that are operated by the same entity that operates this
-     * consensus node.
-     * <p>
-     * This field is OPTIONAL and MAY be empty.<br/>
-     * This field MUST NOT contain more than twenty(20) entries.<br/>
-     * Every entry in this list MUST be a valid `registered_node_id` for a
-     * current registered node.
-     */
-    repeated uint64 associated_registered_node = 13;
+    ServiceEndpoint grpc_proxy_endpoint = 12;
 }

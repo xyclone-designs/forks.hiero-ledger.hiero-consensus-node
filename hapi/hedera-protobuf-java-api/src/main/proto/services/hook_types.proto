@@ -1,13 +1,14 @@
 syntax = "proto3";
 
-package com.hedera.hapi.node.hooks;
+package proto.services;
 
 import "services/basic_types.proto";
 import "google/protobuf/wrappers.proto";
 
 // SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.node.hooks.legacy";
-// <<<pbj.java_package = "com.hedera.hapi.node.hooks">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.services.hooks">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /***
@@ -27,7 +28,7 @@ message HookCreation {
   /**
    * The id of the hook's entity.
    */
-  proto.HookEntityId entity_id = 1;
+  proto.services.HookEntityId entity_id = 1;
 
   /**
    * The creation details.
@@ -70,7 +71,7 @@ message HookCreationDetails {
    * If set, a key that that can be used to remove or replace the hook; or (if
    * applicable, as with an EVM hook) do transactions that customize the hook.
    */
-  proto.Key admin_key = 4;
+  proto.services.Key admin_key = 4;
 }
 
 /**
@@ -99,7 +100,7 @@ message EvmHookSpec {
     /**
      * The id of a contract that implements the extension point API with EVM bytecode.
      */
-    proto.ContractID contract_id = 1;
+    proto.services.ContractID contract_id = 1;
   }
 }
 

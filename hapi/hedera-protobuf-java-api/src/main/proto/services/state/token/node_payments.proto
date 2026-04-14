@@ -10,11 +10,12 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.node.state.token;
+package proto.services.state.token;
 
 // SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.node.state.token.legacy";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.token">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.Token";
+option java_package = "com.hedera.hashgraph.proto.services.state.token";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.services.state.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/timestamp.proto";
@@ -28,7 +29,7 @@ message NodePayments {
   /**
   * The time when the last node fees were distributed
   */
-  proto.Timestamp last_node_fee_distribution_time = 1;
+  proto.services.Timestamp last_node_fee_distribution_time = 1;
   /**
    * A list of node account id to the total amount of fees due to each node in the current staking period
    */
@@ -42,7 +43,7 @@ message NodePayment {
   /**
    * The node account id
    */
-  proto.AccountID node_account_id = 1;
+  proto.services.AccountID node_account_id = 1;
   /**
    * The total amount of fees due to the node in tinybars
    */

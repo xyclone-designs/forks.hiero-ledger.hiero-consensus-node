@@ -13,11 +13,27 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.block.stream.output;
+package proto.block.stream.output;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.block.stream.output.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.stream.output">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+option csharp_namespace = "Hedera.Hashgraph.Proto.Block.Stream.Output";
+option java_package = "com.hedera.hashgraph.proto.block.stream.output";
+// <<<pbj.java_package = "proto.block.stream.output">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "block/stream/output/schedule_service.proto";
@@ -40,7 +56,7 @@ import "block/stream/output/smart_contract_service.proto";
  *
  * <!--
  * Reserved definitions:
- * import "stream/smart_contract_service.proto";
+ * import "block/stream/smart_contract_service.proto";
  *    UpdateContractOutput contract_update;
  *    DeleteContractOutput contract_delete;
  *    SystemDeleteContractOutput
@@ -48,7 +64,7 @@ import "block/stream/output/smart_contract_service.proto";
  *    CreateTopicOutput create_topic;
  *    UpdateTopicOutput update_topic;
  *
- * import "stream/file_service.proto";
+ * import "block/stream/file_service.proto";
  *    CreateFileOutput file_create;
  *    AppendFileOutput file_append;
  *    UpdateFileOutput file_update;
@@ -56,7 +72,7 @@ import "block/stream/output/smart_contract_service.proto";
  *    SystemDeleteOutput system_delete;
  *    SystemUndeleteOutput system_undelete;
  *
- * import "stream/crypto_service.proto";
+ * import "block/stream/crypto_service.proto";
  *    CryptoTransferOutput crypto_transfer;
  *    UpdateNodeStakeOutput update_node_stake;
  *    ApproveAllowanceOutput approve_allowance;
@@ -64,7 +80,7 @@ import "block/stream/output/smart_contract_service.proto";
  *    UpdateAccountOutput update_account;
  *    DeleteAccountOutput delete_account;
  *
- * import "stream/token_service.proto";
+ * import "block/stream/token_service.proto";
  *    CreateTokenOutput create_token;
  *    DeleteTokenOutput delete_token;
  *    FreezeTokenAccountOutput freeze_token_account;
@@ -83,14 +99,14 @@ import "block/stream/output/smart_contract_service.proto";
  *    UnpauseTokenOutput unpause_token;
  *    TokenAirdropOutput token_airdrop;
  *
- * import "stream/consensus_service.proto";
+ * import "block/stream/consensus_service.proto";
  *    DeleteTopicOutput delete_topic;
  *    SubmitMessageOutput submit_message;
  *
- * import "stream/schedule_service.proto";
+ * import "block/stream/schedule_service.proto";
  *    DeleteScheduleOutput delete_schedule;
  *
- * import "stream/network_service.proto";
+ * import "block/stream/network_service.proto";
  *    FreezeOutput freeze_network;
  * -->
  */

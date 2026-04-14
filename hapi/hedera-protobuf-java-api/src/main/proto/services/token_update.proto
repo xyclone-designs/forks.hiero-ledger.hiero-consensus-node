@@ -13,11 +13,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.token">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -35,7 +51,8 @@ import "google/protobuf/wrappers.proto";
  * If the `treasury` is set to a new account, the new account MUST sign this
  * transaction.<br/>
  * If the `treasury` is set to a new account for a _non-fungible/unique_ token,
- * The current treasury MAY hold some tokens.
+ * The current treasury MUST NOT hold any tokens, or the network configuration
+ * property `tokens.nfts.useTreasuryWildcards` MUST be set.
  *
  * #### Requirements for Keys
  * Any of the key values may be changed, even without an admin key, but the
@@ -57,7 +74,7 @@ message TokenUpdateTransactionBody {
      * If any field other than `expiry` is set, the identified token MUST
      * have a valid `admin_key`.
      */
-    TokenID token = 1;
+    proto.services.TokenID token = 1;
 
     /**
      * A new symbol to use for the token.
@@ -93,7 +110,7 @@ message TokenUpdateTransactionBody {
      *   account MUST NOT hold any tokens of this type.
      * - The new treasury account key MUST sign this transaction.
      */
-    AccountID treasury = 4;
+    proto.services.AccountID treasury = 4;
 
     /**
      * An Hedera key for token administration.
@@ -191,7 +208,7 @@ message TokenUpdateTransactionBody {
      * Once set, it can only be replaced by a valid account.
      * </blockquote></blockquote>
      */
-    AccountID autoRenewAccount = 10;
+    proto.services.AccountID autoRenewAccount = 10;
 
     /**
      * A duration between token automatic renewals.<br/>
@@ -217,7 +234,7 @@ message TokenUpdateTransactionBody {
      * the identified token, the token SHALL be subject to automatic renewal
      * when the consensus time exceeds this value.
      */
-    Timestamp expiry = 12;
+    proto.services.Timestamp expiry = 12;
 
     /**
      * A short description for this token.

@@ -12,11 +12,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.scheduled">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.scheduled">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -45,7 +61,7 @@ message ScheduleGetInfoQuery {
      * This SHALL identify the schedule to retrieve.<br/>
      * This field is REQUIRED.
      */
-    ScheduleID scheduleID = 2;
+    proto.services.ScheduleID scheduleID = 2;
 }
 
 /**
@@ -57,7 +73,7 @@ message ScheduleInfo {
      * <p>
      * This SHALL identify the schedule retrieved.
      */
-    ScheduleID scheduleID = 1;
+    proto.services.ScheduleID scheduleID = 1;
 
     oneof data {
         /**
@@ -67,7 +83,7 @@ message ScheduleInfo {
          * timestamp of the `deleteSchedule` transaction.<br/>
          * If the schedule is _not_ deleted, this field SHALL NOT be set.
          */
-        Timestamp deletion_time = 2;
+        proto.services.Timestamp deletion_time = 2;
 
         /**
          * An execution timestamp.
@@ -77,7 +93,7 @@ message ScheduleInfo {
          * transaction that initiated that execution.<br/>
          * If the schedule is _not_ complete, this field SHALL NOT be set.
          */
-        Timestamp execution_time = 3;
+        proto.services.Timestamp execution_time = 3;
     }
 
     /**
@@ -98,7 +114,7 @@ message ScheduleInfo {
      * A long-term schedule SHALL NOT be executed if any signature requirement
      * for the scheduled transaction are not met at expiration.<br/>
      */
-    Timestamp expirationTime = 4;
+    proto.services.Timestamp expirationTime = 4;
 
     /**
      * A scheduled transaction.
@@ -150,7 +166,7 @@ message ScheduleInfo {
      * <p>
      * This SHALL identify the account that created this schedule.
      */
-    AccountID creatorAccountID = 9;
+    proto.services.AccountID creatorAccountID = 9;
 
     /**
      * An account identifier.
@@ -158,7 +174,7 @@ message ScheduleInfo {
      * The identified account SHALL pay the full transaction fee for the
      * scheduled transaction _when it executes_.
      */
-    AccountID payerAccountID = 10;
+    proto.services.AccountID payerAccountID = 10;
 
     /**
      * A transaction identifier.
@@ -166,7 +182,7 @@ message ScheduleInfo {
      * This SHALL be recorded as the transaction identifier for the
      * _scheduled_ transaction, if (and when) it is executed.
      */
-    TransactionID scheduledTransactionID = 11;
+    proto.services.TransactionID scheduledTransactionID = 11;
 
     /**
      * The ledger ID of the network that generated this response.

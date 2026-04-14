@@ -1,12 +1,13 @@
 syntax = "proto3";
 
-package com.hedera.hapi.node.state.history;
+package proto.services.state.history;
 
 // SPDX-License-Identifier: Apache-2.0
 import "services/timestamp.proto";
 
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.history">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.History";
+option java_package = "com.hedera.hashgraph.proto.services.state.history";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.services.state.history">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -21,7 +22,7 @@ message ProofKeySet {
    * tardy relative to the latest assembly start time may result
    * in the node's key being omitted from the address book.
    */
-  proto.Timestamp adoption_time = 2;
+  proto.services.Timestamp adoption_time = 2;
   /**
    * The proof key the node is using.
    */
@@ -126,13 +127,13 @@ message HistoryProofConstruction {
      * soon as it has the associated metadata and proof keys for nodes
      * with >2/3 weight in the target roster.
      */
-    proto.Timestamp grace_period_end_time = 5;
+    proto.services.Timestamp grace_period_end_time = 5;
     /**
      * If the network has gathered enough proof keys to assemble the
      * history for this construction, the cutoff time at which those
      * keys must have been adopted to be included in the final history.
      */
-    proto.Timestamp assembly_start_time = 6;
+    proto.services.Timestamp assembly_start_time = 6;
     /**
      * When this construction is complete, the proof that the target
      * roster's address book and associated metadata belong to the
@@ -169,7 +170,7 @@ message WrapsSigningState {
    * protocol phase, the next time at which nodes should stop waiting
    * for tardy messages from R1 participants and start over.
    */
-  proto.Timestamp grace_period_end_time = 2;
+  proto.services.Timestamp grace_period_end_time = 2;
 }
 
 /**
@@ -226,7 +227,7 @@ message RecordedHistorySignature {
   /**
    * The time at which the signature was recorded.
    */
-  proto.Timestamp signing_time = 1;
+  proto.services.Timestamp signing_time = 1;
 
   /**
    * The signature on some new history.
@@ -269,7 +270,7 @@ message WrapsMessageDetails {
   /**
    * The time at which the message was published.
    */
-  proto.Timestamp publication_time = 1;
+  proto.services.Timestamp publication_time = 1;
   /**
    * The phase of the construction the message applies to.
    */

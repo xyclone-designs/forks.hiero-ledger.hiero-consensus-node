@@ -12,11 +12,12 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.block.stream.trace;
+package proto.block.stream.trace;
 
 // SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.block.stream.trace.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.stream.trace">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Block.Stream.Trace";
+option java_package = "com.hedera.hashgraph.proto.block.stream.trace";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.stream.trace">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -42,7 +43,7 @@ message ContractSlotUsage {
     /**
      * The contract using the storage slots.
      */
-    proto.ContractID contract_id = 1;
+    proto.services.ContractID contract_id = 1;
 
     /**
      * When this EVM transaction was one of several within its Hiero
@@ -55,7 +56,7 @@ message ContractSlotUsage {
      * 2. If the slot was not modified in a following EVM trace, the value
      * is whatever value was committed to the Merkle state for the slot.
      */
-    WrittenSlotKeys written_slot_keys = 3;
+    proto.block.stream.trace.WrittenSlotKeys written_slot_keys = 3;
 
     /**
      * The storage slots that were read in this EVM execution. They may or
@@ -112,7 +113,7 @@ message ExecutedInitcode {
     /**
      * The id of the contract created by the initcode.
      */
-    proto.ContractID contract_id = 1;
+    proto.services.ContractID contract_id = 1;
 
     oneof initcode {
         /**
@@ -120,7 +121,7 @@ message ExecutedInitcode {
          * of the initcode, the initcode pieces that surround the runtime bytecode (which is
          * necessarily in the Hiero transactional unit's state changes).
          */
-        InitcodeBookends initcode_bookends = 2;
+        proto.block.stream.trace.InitcodeBookends initcode_bookends = 2;
 
         /**
          * If the runtime bytecode is not a subsequence of the initcode, the explicit initcode.
@@ -156,7 +157,7 @@ message EvmTransactionLog {
     /**
      * The contract emitting the log.
      */
-    proto.ContractID contract_id = 1;
+    proto.services.ContractID contract_id = 1;
 
     /**
      * The logged data.
@@ -182,7 +183,7 @@ message EvmTraceData {
     /**
      * All contract actions executed during the transaction.
      */
-    repeated proto.ContractAction contract_actions = 1;
+    repeated proto.streams.ContractAction contract_actions = 1;
 
     /**
      * Contract slot usages in the transaction, by contract id.

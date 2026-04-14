@@ -12,11 +12,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.transaction">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.transaction">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -132,7 +148,7 @@ message FixedFee {
      * If this value is set to `0.0.0` in the `tokenCreate` transaction, it
      * SHALL be replaced with the `TokenID` of the newly created token.
      */
-    TokenID denominating_token_id = 2;
+    proto.services.TokenID denominating_token_id = 2;
 }
 
 /**
@@ -259,7 +275,7 @@ message CustomFee {
     /**
      * The account to receive the custom fee.
      */
-    AccountID fee_collector_account_id = 3;
+    proto.services.AccountID fee_collector_account_id = 3;
 
     /**
      * Flag indicating to exempt all custom fee collector accounts for this
@@ -299,7 +315,7 @@ message AssessedCustomFee {
      * <p>
      * If the token transferred is HBAR, this field SHALL NOT be set.
      */
-    TokenID token_id = 2;
+    proto.services.TokenID token_id = 2;
 
     /**
      * An account that received the fee assessed.
@@ -307,7 +323,7 @@ message AssessedCustomFee {
      * This SHALL NOT be the sender or receiver of the original
      * cryptoTransfer transaction.
      */
-    AccountID fee_collector_account_id = 3;
+    proto.services.AccountID fee_collector_account_id = 3;
 
     /**
      * An account that provided the tokens assessed as a fee.
@@ -347,7 +363,7 @@ message FixedCustomFee {
    * All amounts collected for this consensus custom fee SHALL be transferred
    * to the account identified by this field.
    */
-  AccountID fee_collector_account_id = 2;
+  proto.services.AccountID fee_collector_account_id = 2;
 }
 
 /**
@@ -398,7 +414,7 @@ message CustomFeeLimit {
     /**
      * A payer account identifier.
      */
-    AccountID account_id = 1;
+    proto.services.AccountID account_id = 1;
 
     /**
      * The maximum fees that the user is willing to pay for the message.

@@ -16,13 +16,29 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services.state.token;
 
-// SPDX-License-Identifier: Apache-2.0
+/*
+ * Copyright (C) 2023-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import "services/basic_types.proto";
 
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.state.token">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services.State.Token";
+option java_package = "com.hedera.hashgraph.proto.services.state.token";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.state.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -120,7 +136,7 @@ message Account {
      * value used to reference the account in query responses, transaction
      * receipts, transaction records, and the block stream.
      */
-    AccountID account_id = 1;
+    proto.services.AccountID account_id = 1;
 
     /**
      * An account EVM alias.
@@ -210,7 +226,7 @@ message Account {
          * If this account is not currently staking its balances, then this
          * field, if set, SHALL be the sentinel value of `0.0.0`.
          */
-        AccountID staked_account_id = 10;
+        proto.services.AccountID staked_account_id = 10;
 
         /**
          * An identifier for the node this account is staked to.
@@ -259,7 +275,7 @@ message Account {
      * this head_token_id. Each subsequent item in the list is found via
      * similar lookup with both an AccountID and a TokenID.
      */
-    TokenID head_token_id = 14;
+    proto.services.TokenID head_token_id = 14;
 
     /**
      * A NftID at the head of the linked list for this account from
@@ -270,7 +286,7 @@ message Account {
      * subsequent item in the list is found via similar lookup with the next
      * or previous NftID.
      */
-    NftID head_nft_id = 15;
+    proto.services.NftID head_nft_id = 15;
 
     /**
      * A serial number in the NftID at the head of the linked list for this
@@ -349,7 +365,7 @@ message Account {
      * from the designated auto renew account, if that account has sufficient
      * balance.
      */
-    AccountID auto_renew_account_id = 25;
+    proto.services.AccountID auto_renew_account_id = 25;
 
     /**
      * A count of the number of seconds to extend this account's expiration.
@@ -465,32 +481,6 @@ message Account {
      * identified by `head_pending_airdrop_id`.
      */
     uint64 number_pending_airdrops = 35;
-
-    /**
-     * The number of hooks currently in use on this account.
-     */
-    uint64 number_hooks_in_use = 36;
-
-    /**
-     * If the account has more than zero hooks in use, the id of the first hook in its
-     * doubly-linked list of hooks.
-     */
-    int64 first_hook_id = 37;
-
-    /**
-     * The number of storage slots in use by this account's EVM hooks.
-     */
-    uint64 number_evm_hook_storage_slots = 38;
-
-    /**
-     * The delegated contract address set for this account.
-     * <p>
-     * If this field is set on the account, anytime a call is made to the account's address
-     * (either an EVM call within HSCS or a child call dispatched by CryptoTransfer)
-     * the EVM code of the contract referenced by `delegation_address` will be
-     * executed in the context of the account.
-     */
-    bytes delegation_address = 39;
 }
 
 /**
@@ -516,7 +506,7 @@ message AccountApprovalForAllAllowance {
      * <p>
      * This token MUST be a non-fungible/unique token.
      */
-    TokenID token_id = 1;
+    proto.services.TokenID token_id = 1;
 
     /**
      * The identifier for the spending account associated with this allowance.
@@ -524,7 +514,7 @@ message AccountApprovalForAllAllowance {
      * This account SHALL be permitted to sign transactions to spend tokens of
      * the associated token type from the funding/allowing account.
      */
-    AccountID spender_id = 2;
+    proto.services.AccountID spender_id = 2;
 }
 
 /**
@@ -547,7 +537,7 @@ message AccountFungibleTokenAllowance {
      * <p>
      * This token MUST be a fungible/common token.
      */
-    TokenID token_id = 1;
+    proto.services.TokenID token_id = 1;
 
     /**
      * The identifier for the spending account associated with this allowance.
@@ -556,7 +546,7 @@ message AccountFungibleTokenAllowance {
      * the associated token type from the funding/allowing account.<br/>
      * This permission SHALL be limited to no more than the specified `amount`.
      */
-    AccountID spender_id = 2;
+    proto.services.AccountID spender_id = 2;
 
     /*
      * The maximum amount that the spender account may transfer within the
@@ -591,7 +581,7 @@ message AccountCryptoAllowance {
      * the funding/allowing account.<br/>
      * This permission SHALL be limited to no more than the specified `amount`.
      */
-    AccountID spender_id = 1;
+    proto.services.AccountID spender_id = 1;
 
     /*
      * The maximum amount that the spender account may transfer within the

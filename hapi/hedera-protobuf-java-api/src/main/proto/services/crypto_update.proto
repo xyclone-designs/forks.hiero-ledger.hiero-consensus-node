@@ -11,16 +11,31 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.token">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
 import "services/duration.proto";
-import "services/hook_types.proto";
 import "services/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
@@ -57,7 +72,7 @@ message CryptoUpdateTransactionBody {
      * <p>
      * This field is REQUIRED.
      */
-    AccountID accountIDToUpdate = 2;
+    proto.services.AccountID accountIDToUpdate = 2;
 
     /**
      * An account key.<br/>
@@ -74,7 +89,7 @@ message CryptoUpdateTransactionBody {
      * An account identifier for a "proxy" account. This account's HBAR are
      * staked to a node selected by the proxy account.
      */
-    AccountID proxyAccountID = 4 [deprecated = true];
+    proto.services.AccountID proxyAccountID = 4 [deprecated = true];
 
     /**
      * Removed prior to the first available history.<br/>
@@ -144,7 +159,7 @@ message CryptoUpdateTransactionBody {
      * extended by the current maximum expiration time configured for the
      * network.
      */
-    Timestamp expirationTime = 9;
+    proto.services.Timestamp expirationTime = 9;
 
     oneof receiverSigRequiredField {
         /**
@@ -163,7 +178,7 @@ message CryptoUpdateTransactionBody {
          * hbar or other tokens to this account balance MUST be signed by the
          * identifying key of this account (that is, the `key` field).
          */
-        google.protobuf.BoolValue receiverSigRequiredWrapper = 13;
+         google.protobuf.BoolValue receiverSigRequiredWrapper = 13;
     }
 
     /**
@@ -194,7 +209,7 @@ message CryptoUpdateTransactionBody {
          * If this account is not currently staking its balances, then this
          * field, if set, MUST be the sentinel value of `0.0.0`.
          */
-        AccountID staked_account_id = 16;
+        proto.services.AccountID staked_account_id = 16;
 
         /**
          * ID of the node this account is staked to.
@@ -215,30 +230,6 @@ message CryptoUpdateTransactionBody {
      * This account MAY still stake its balances, but SHALL NOT receive reward
      * payments for doing so, if this value is set, and `true`.
      */
-    google.protobuf.BoolValue decline_reward = 18;
+     google.protobuf.BoolValue decline_reward = 18;
 
-    /**
-     * The ids the hooks to delete from the account.
-     */
-    repeated int64 hook_ids_to_delete = 19;
-
-    /**
-     * The hooks to create for the account.
-     */
-    repeated com.hedera.hapi.node.hooks.HookCreationDetails hook_creation_details = 20;
-
-    /**
-     * The delegated contract address to set for the account.
-     * <p>
-     * If this field is unset (empty), no change is made to account's `delegation_address`.
-     * If set, the value MUST be 20 bytes long (EVM address).
-     * Submitting a value of `0x0000000000000000000000000000000000000000` will clear
-     * account's current `delegation_address`.
-     *
-     * If this field is set on the account, anytime a call is made to the account's address
-     * (either an EVM call within HSCS or a child call dispatched by CryptoTransfer)
-     * the EVM code of the contract referenced by `delegation_address` will be
-     * executed in the context of the account.
-     */
-    bytes delegation_address = 21;
 }

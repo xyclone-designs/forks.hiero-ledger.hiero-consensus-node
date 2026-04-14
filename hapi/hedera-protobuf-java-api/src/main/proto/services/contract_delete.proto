@@ -12,11 +12,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.contract">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.contract">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -54,7 +70,7 @@ message ContractDeleteTransactionBody {
      * <p>
      * This field is REQUIRED.
      */
-    ContractID contractID = 1;
+    proto.services.ContractID contractID = 1;
 
     oneof obtainers {
         /**
@@ -63,7 +79,7 @@ message ContractDeleteTransactionBody {
          * This account SHALL receive all HBAR and other tokens still owned by
          * the contract that is removed.
          */
-        AccountID transferAccountID = 2;
+        proto.services.AccountID transferAccountID = 2;
 
         /**
          * A contract ID recipient.
@@ -71,7 +87,7 @@ message ContractDeleteTransactionBody {
          * This contract SHALL receive all HBAR and other tokens still owned by
          * the contract that is removed.
          */
-        ContractID transferContractID = 3;
+        proto.services.ContractID transferContractID = 3;
     }
 
     /**

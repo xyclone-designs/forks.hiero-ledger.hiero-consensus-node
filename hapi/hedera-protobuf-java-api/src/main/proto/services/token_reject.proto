@@ -12,11 +12,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.token">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -51,7 +67,7 @@ message TokenRejectTransactionBody {
      * If not set, the `payer` for this transaction SHALL be the effective
      * `owner` for this transaction.
      */
-    AccountID owner = 1;
+    proto.services.AccountID owner = 1;
 
     /**
      * A list of one or more token rejections.
@@ -80,11 +96,11 @@ message TokenReference {
         /**
          * A fungible/common token type.
          */
-        TokenID fungible_token = 1;
+        proto.services.TokenID fungible_token = 1;
 
         /**
          * A single specific serialized non-fungible/unique token.
          */
-        NftID nft = 2;
+        proto.services.NftID nft = 2;
     }
 }

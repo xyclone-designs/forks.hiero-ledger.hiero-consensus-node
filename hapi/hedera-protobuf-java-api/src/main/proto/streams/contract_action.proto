@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package proto;
+package proto.streams;
 
 /*-
  * ‌
@@ -22,12 +22,12 @@ package proto;
  * ‍
  */
 
-option java_package = "com.hedera.services.stream.proto";
-// <<<pbj.java_package = "com.hedera.hapi.streams">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Streams";
+option java_package = "com.hedera.hashgraph.proto.streams";
+// <<<pbj.java_package = "com.hedera.hashgraph.streams">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
-
 
 message ContractActions {
   repeated ContractAction contract_actions = 1;
@@ -126,12 +126,12 @@ message ContractAction {
     /**
      * If the caller was a regular account, the AccountID.
      */
-    AccountID calling_account = 2;
+    proto.services.AccountID calling_account = 2;
 
     /**
      * If the caller was a smart contract account, the ContractID.
      */
-    ContractID calling_contract = 3;
+    proto.services.ContractID calling_contract = 3;
   }
 
   /**
@@ -152,12 +152,12 @@ message ContractAction {
      * The AccountID of the recipient if the recipient is an account. Only HBars will be transferred, no other side
      * effects should be expected.
      */
-    AccountID recipient_account = 6;
+    proto.services.AccountID recipient_account = 6;
 
     /**
      * The ContractID of the recipient if the recipient is a smart contract.
      */
-    ContractID recipient_contract = 7;
+    proto.services.ContractID recipient_contract = 7;
 
     /**
      * The bytes of the targeted by the action address.

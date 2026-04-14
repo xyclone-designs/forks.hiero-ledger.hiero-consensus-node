@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package proto;
+package proto.streams;
 
 /*-
  * ‌
@@ -22,18 +22,19 @@ package proto;
  * ‍
  */
 
-option java_package = "com.hedera.services.stream.proto";
-// <<<pbj.java_package = "com.hedera.hapi.streams">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Streams";
+option java_package = "com.hedera.hashgraph.proto.streams";
+// <<<pbj.java_package = "com.hedera.hashgraph.streams">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
-import "services/basic_types.proto";
 import "services/timestamp.proto";
+import "services/basic_types.proto";
 
 message TokenUnitBalance {
     /**
      * A unique token id
      */
-    TokenID tokenId = 1;
+    proto.services.TokenID tokenId = 1;
 
     /**
      * Number of transferable units of the identified token. For token of type FUNGIBLE_COMMON -
@@ -50,7 +51,7 @@ message SingleAccountBalances {
     /**
      * The account
      */
-    AccountID accountID = 1;
+    proto.services.AccountID accountID = 1;
 
     /**
      * The account's hbar balance
@@ -70,7 +71,7 @@ message AllAccountBalances {
     /**
      * An instant in consensus time 
      */
-    Timestamp consensusTimestamp = 1;
+    proto.services.Timestamp consensusTimestamp = 1;
 
     /**
      * The list of account balances for all accounts, after handling all transactions with consensus

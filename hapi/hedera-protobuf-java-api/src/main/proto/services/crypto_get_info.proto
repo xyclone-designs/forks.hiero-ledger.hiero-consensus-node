@@ -11,11 +11,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.token">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/timestamp.proto";
@@ -44,7 +60,7 @@ message CryptoGetInfoQuery {
     /**
      * The account ID for which information is requested
      */
-    AccountID accountID = 2;
+    proto.services.AccountID accountID = 2;
 }
 
 /**
@@ -97,7 +113,7 @@ message CryptoGetInfoResponse {
          * An account identifier, when assigned to this field, SHALL be of
          * the form `shard.realm.number`.
          */
-        AccountID accountID = 1;
+        proto.services.AccountID accountID = 1;
 
         /**
          * A Solidity ID.
@@ -122,7 +138,7 @@ message CryptoGetInfoResponse {
          * this account is not currently staking its balances, then this field,
          * if set, SHALL be the sentinel value of `0.0.0`.
          */
-        AccountID proxyAccountID = 4 [deprecated = true];
+        proto.services.AccountID proxyAccountID = 4 [deprecated = true];
 
         /**
          * Replaced by StakingInfo.<br/>
@@ -187,7 +203,7 @@ message CryptoGetInfoResponse {
          * update transaction to modify expiration time, subject to the current
          * maximum expiration time for the network.
          */
-        Timestamp expirationTime = 12;
+        proto.services.Timestamp expirationTime = 12;
 
         /**
          * A duration to extend this account's expiration.
@@ -269,16 +285,6 @@ message CryptoGetInfoResponse {
          * Staking information for this account.
          */
         StakingInfo staking_info = 22;
-
-        /**
-         * The delegated contract address set for this account.
-         * <p>
-         * If this field is set on the account, anytime a call is made to the account's address
-         * (either an EVM call within HSCS or a child call dispatched by CryptoTransfer)
-         * the EVM code of the contract referenced by `delegation_address` will be
-         * executed in the context of the account.
-         */
-        bytes delegation_address = 23;
     }
 
     /**

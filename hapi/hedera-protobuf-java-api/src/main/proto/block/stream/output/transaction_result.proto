@@ -11,11 +11,27 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.block.stream.output;
+package proto.block.stream.output;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.block.stream.output.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.stream.output">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+option csharp_namespace = "Hedera.Hashgraph.Proto.Block.Stream.Output";
+option java_package = "com.hedera.hashgraph.proto.block.stream.output";
+// <<<pbj.java_package = "proto.block.stream.output">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -42,7 +58,7 @@ message TransactionResult {
      * This value SHALL indicate the status of this transaction.<br/>
      * This code SHALL indicate success or a specific failure.
      */
-    proto.ResponseCodeEnum status = 1;
+    proto.services.ResponseCodeEnum status = 1;
 
     /**
      * A consensus timestamp.
@@ -51,7 +67,7 @@ message TransactionResult {
      * reached consensus.<br/>
      * This field SHALL be set for all transactions.
      */
-    proto.Timestamp consensus_timestamp = 2;
+    proto.services.Timestamp consensus_timestamp = 2;
 
     /**
      * A consensus timestamp.
@@ -62,7 +78,7 @@ message TransactionResult {
      * This SHALL be set on an internal "child" transaction initiated as
      * part of completing a user-submitted transaction.
      */
-    proto.Timestamp parent_consensus_timestamp = 3;
+    proto.services.Timestamp parent_consensus_timestamp = 3;
 
     /**
      * A schedule that executed this transaction, if this transaction
@@ -71,7 +87,7 @@ message TransactionResult {
      * This value SHALL NOT be set unless this transaction result represents
      * the result of a _scheduled_ child transaction.
      */
-    proto.ScheduleID schedule_ref = 5;
+    proto.services.ScheduleID schedule_ref = 5;
 
     /**
      * An amount, in tinybar, charged for this transaction.
@@ -101,7 +117,7 @@ message TransactionResult {
      * by clients of the MAPI. Additionally, there are some transfers that
      * are mingled with transactions and only split out here.
      */
-    proto.TransferList transfer_list = 7;
+    proto.services.TransferList transfer_list = 7;
 
     /**
      * A list of _non-HBAR_ token transfers, in single-entry form.
@@ -116,7 +132,7 @@ message TransactionResult {
      *       with this transaction</li>
      * </ul>
      */
-    repeated proto.TokenTransferList token_transfer_lists = 8;
+    repeated proto.services.TokenTransferList token_transfer_lists = 8;
 
     /**
      * A list of token associations.
@@ -124,7 +140,7 @@ message TransactionResult {
      * This field SHALL list all token associations created automatically
      * while handling this transaction.
      */
-    repeated proto.TokenAssociation automatic_token_associations = 9;
+    repeated proto.services.TokenAssociation automatic_token_associations = 9;
 
     /**
      * A list of accounts and amounts.
@@ -133,7 +149,7 @@ message TransactionResult {
      * of this transaction.<br/>
      * Each entry SHALL contain both the account and the amount paid.
      */
-    repeated proto.AccountAmount paid_staking_rewards = 10;
+    repeated proto.services.AccountAmount paid_staking_rewards = 10;
 
     /**
      * A congestion pricing multiplier.
@@ -148,15 +164,5 @@ message TransactionResult {
      * <p>
      * These fees SHALL be present in the full transfer list for the transaction.
      */
-    repeated proto.AssessedCustomFee assessed_custom_fees = 12;
-
-
-    /**
-     * A high volume pricing multiplier.
-     * <p>
-     * This SHALL be the multiplier that is applied to the transaction
-     * fees charged for this transaction if the high volume flag is set.
-     * This is scaled by 1000.
-     */
-    uint64 high_volume_pricing_multiplier = 13;
+    repeated proto.services.AssessedCustomFee assessed_custom_fees = 12;
 }

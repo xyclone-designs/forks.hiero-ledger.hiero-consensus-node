@@ -1,10 +1,11 @@
 syntax = "proto3";
 
-package com.hedera.hapi.node.hooks;
+package proto.services;
 
 // SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.node.hooks.legacy";
-// <<<pbj.java_package = "com.hedera.hapi.node.hooks">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.services">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/basic_types.proto";
@@ -18,7 +19,7 @@ message HookDispatchTransactionBody {
     /**
      * The id of the hook to delete.
      */
-    proto.HookId hook_id_to_delete = 1;
+    proto.services.HookId hook_id_to_delete = 1;
 
     /**
      * Creation details for a new hook.
@@ -39,11 +40,11 @@ message HookExecution {
   /**
    * The id of the hook's entity.
    */
-  proto.HookEntityId hook_entity_id = 1;
+  proto.services.HookEntityId hook_entity_id = 1;
 
   /**
    * The details of the call, including which hook id to call.
    */
-  proto.HookCall call = 2;
+  proto.services.HookCall call = 2;
 }
 

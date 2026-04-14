@@ -12,10 +12,11 @@
 
 syntax = "proto3";
 
-package com.hedera.hapi.network;
+package proto.network;
 
-option java_package = "com.hedera.node.internal.network.legacy";
-// <<<pbj.java_package = "com.hedera.node.internal.network">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Network";
+option java_package = "com.hedera.hashgraph.proto.network";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.network">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "google/protobuf/wrappers.proto";

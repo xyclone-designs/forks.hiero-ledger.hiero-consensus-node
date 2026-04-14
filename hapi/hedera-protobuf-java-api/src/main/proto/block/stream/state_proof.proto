@@ -18,15 +18,14 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.block.stream;
+package proto.block.stream;
 
 // SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hedera.hapi.block.stream.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.stream">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Block.Stream";
+option java_package = "com.hedera.hashgraph.proto.block.stream";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.block.stream">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
-import "services/timestamp.proto";
-import "block/stream/record_file_item.proto";
 import "block/stream/tss_signed_block_proof.proto";
 
 message StateProof {
@@ -48,7 +47,7 @@ message StateProof {
          * than or equal to the current block; otherwise this field MUST be
          * omitted.
          */
-        TssSignedBlockProof signed_block_proof = 2;
+        proto.block.stream.TssSignedBlockProof signed_block_proof = 2;
     }
 }
 
@@ -99,7 +98,7 @@ message MerklePath {
         bytes block_item_leaf = 5;
 
         /**
-         * A {@code proto.Timestamp} Leaf, if this path starts from a timestamp
+         * A {@code proto.services.Timestamp} Leaf, if this path starts from a timestamp
          */
         bytes timestamp_leaf = 6;
     }

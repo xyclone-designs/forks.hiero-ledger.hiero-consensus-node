@@ -11,11 +11,27 @@
  */
 syntax = "proto3";
 
-package proto;
+package proto.services;
 
-// SPDX-License-Identifier: Apache-2.0
-option java_package = "com.hederahashgraph.api.proto.java";
-// <<<pbj.java_package = "com.hedera.hapi.node.token">>> This comment is special code for setting PBJ Compiler java package
+/*
+ * Copyright (C) 2018-2024 Hedera Hashgraph, LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+option csharp_namespace = "Hedera.Hashgraph.Proto.Services";
+option java_package = "com.hedera.hashgraph.proto.services";
+// <<<pbj.java_package = "com.hedera.hashgraph.node.token">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 import "services/duration.proto";
@@ -121,7 +137,7 @@ message TokenCreateTransactionBody {
      * have a non-zero HBAR balance.<br/>
      * The identified account SHALL be associated to the new token.
      */
-    AccountID treasury = 5;
+    proto.services.AccountID treasury = 5;
 
     /**
      * An Hedera key for token administration.
@@ -212,7 +228,7 @@ message TokenCreateTransactionBody {
      * set, then this value SHALL default to the current consensus time
      * extended by the "default" expiration period from network configuration.
      */
-    Timestamp expiry = 13;
+    proto.services.Timestamp expiry = 13;
 
     /**
      * An identifier for the account to be charged renewal fees at the token's
@@ -232,7 +248,7 @@ message TokenCreateTransactionBody {
      * If this value is set, the referenced account MUST sign this
      * transaction.
      */
-    AccountID autoRenewAccount = 14;
+    proto.services.AccountID autoRenewAccount = 14;
 
     /**
      * A duration between token automatic renewals.<br/>

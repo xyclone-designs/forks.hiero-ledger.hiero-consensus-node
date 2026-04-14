@@ -12,14 +12,14 @@
 
 syntax = "proto3";
 
-package com.hedera.hapi.block.internal;
+package proto.blocks;
 
 // SPDX-License-Identifier: Apache-2.0
-import "block/stream/block.proto";
 import "services/timestamp.proto";
 
-option java_package = "com.hedera.hapi.block.internal.protoc";
-// <<<pbj.java_package = "com.hedera.hapi.block.internal">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Blocks";
+option java_package = "com.hedera.hashgraph.proto.blocks";
+// <<<pbj.java_package = "com.hedera.hashgraph.proto.blocks">>> This comment is special code for setting PBJ Compiler java package
 
 option java_multiple_files = true;
 
@@ -40,7 +40,7 @@ message BufferedBlock {
   /**
    * The timestamp this block was closed.
    */
-  proto.Timestamp closed_timestamp = 2;
+  proto.services.Timestamp closed_timestamp = 2;
 
   /**
    * Flag indicating if this block's proof has been sent to a block node.
@@ -55,10 +55,10 @@ message BufferedBlock {
   /**
    * The block data.
    */
-  com.hedera.hapi.block.stream.Block block = 5;
+  //proto.block.stream.Block block = 5;
 
   /**
    * The timestamp this block's header was added to the Block.
    */
-  proto.Timestamp opened_timestamp = 6;
+  proto.services.Timestamp opened_timestamp = 6;
 }

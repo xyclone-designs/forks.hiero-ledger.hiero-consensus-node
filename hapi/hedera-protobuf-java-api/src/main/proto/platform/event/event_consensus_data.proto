@@ -12,7 +12,7 @@
  */
 syntax = "proto3";
 
-package com.hedera.hapi.platform.event;
+package proto.platform.event;
 
 /*
  * Hedera Network Services Protobuf
@@ -31,13 +31,12 @@ package com.hedera.hapi.platform.event;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import "services/basic_types.proto";
-import "platform/event/event_descriptor.proto";
+ 
 import "services/timestamp.proto";
 
-option java_package = "com.hedera.hapi.platform.event.legacy";
-// <<<pbj.java_package = "com.hedera.hapi.platform.event">>> This comment is special code for setting PBJ Compiler java package
+option csharp_namespace = "Hedera.Hashgraph.Proto.Platform.Event";
+option java_package = "com.hedera.hashgraph.proto.platform.event";
+// <<<pbj.java_package = "com.hedera.hashgraph.platform.event">>> This comment is special code for setting PBJ Compiler java package
 option java_multiple_files = true;
 
 /**
@@ -53,7 +52,7 @@ message EventConsensusData {
      * the previous consensus event.<br/>
      * This is a consensus value and MAY NOT match real-world "wall clock" time.
      */
-    proto.Timestamp consensus_timestamp = 1;
+    proto.services.Timestamp consensus_timestamp = 1;
 
     /**
      * A consensus order sequence number.<br/>
