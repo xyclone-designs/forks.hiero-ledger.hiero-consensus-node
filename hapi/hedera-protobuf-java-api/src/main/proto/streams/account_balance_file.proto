@@ -34,7 +34,7 @@ message TokenUnitBalance {
     /**
      * A unique token id
      */
-    proto.services.TokenID tokenId = 1;
+    proto.services.TokenID tokenID = 1;
 
     /**
      * Number of transferable units of the identified token. For token of type FUNGIBLE_COMMON -

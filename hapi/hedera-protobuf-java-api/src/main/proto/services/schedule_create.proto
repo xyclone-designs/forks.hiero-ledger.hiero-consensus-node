@@ -123,7 +123,7 @@ message ScheduleCreateTransactionBody {
      * This transaction body MUST be one of the types enabled in the
      * network configuration value `scheduling.whitelist`.
      */
-    SchedulableTransactionBody scheduledTransactionBody = 1;
+    proto.services.SchedulableTransactionBody scheduledTransactionBody = 1;
 
     /**
      * A short description of the schedule.

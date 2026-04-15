@@ -66,8 +66,8 @@ message TransactionSidecarRecord {
   * In future there will be other categories.
   */
   oneof sidecar_records {
-    ContractStateChanges state_changes = 3;
-    ContractActions actions = 4;
-    ContractBytecode bytecode = 5;
+    proto.streams.ContractStateChanges state_changes = 3;
+    proto.streams.ContractActions actions = 4;
+    proto.streams.ContractBytecode bytecode = 5;
   }
 }

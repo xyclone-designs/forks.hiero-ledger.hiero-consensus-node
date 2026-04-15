@@ -442,11 +442,11 @@ message TransactionID {
  * A composite of its creating entity's id and an arbitrary 64-bit hook id
  * (which need not be sequential).
  */
-message HookId {
+message HookID {
     /**
      * The hook's creating entity id.
      */
-    HookEntityId entity_id = 1;
+    HookEntityID entity_id = 1;
 
     /**
      * An arbitrary 64-bit identifier.
@@ -457,7 +457,7 @@ message HookId {
 /**
  * The id of an entity using a hook.
  */
-message HookEntityId {
+message HookEntityID {
     oneof entity_id {
         /**
          * An account using a hook.
@@ -2186,7 +2186,7 @@ message NodeAddress {
      * <p>
      * A `0.0.101` field
      */
-    int64 nodeId = 5;
+    int64 nodeID = 5;
 
     /**
      * An account to be paid the "node" portion of transaction fees.<br/>
@@ -2194,7 +2194,7 @@ message NodeAddress {
      * <p>
      * A `0.0.101` field
      */
-    AccountID nodeAccountId = 6;
+    AccountID nodeAccountID = 6;
 
     /**
      * A hash of the node's TLS certificate.
@@ -2365,7 +2365,7 @@ message TokenRelationship {
      * <p>
      * This MUST match an existing token that is not deleted.
      */
-    TokenID tokenId = 1;
+    TokenID tokenID = 1;
 
     /**
      * A token symbol.
@@ -2442,7 +2442,7 @@ message TokenBalance {
     /**
      * A token identifier.
      */
-    TokenID tokenId = 1;
+    TokenID tokenID = 1;
 
     /**
      * A number of transferable units of the identified token.
@@ -2562,7 +2562,7 @@ message StakingInfo {
  * any transaction that would modify that pending airdrop
  * (such as a `claimAirdrop` or `cancelAirdrop`).
  */
-message PendingAirdropId {
+message PendingAirdropID {
     /**
      * A sending account.
      * <p>

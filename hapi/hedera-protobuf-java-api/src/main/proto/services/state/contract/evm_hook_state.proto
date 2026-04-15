@@ -29,7 +29,7 @@ message EvmHookState {
   /**
    * For state proofs, the id of this hook.
    */
-  proto.services.HookId hook_id = 1;
+  proto.services.HookID hook_id = 1;
 
   /**
    * The type of the EVM hook.
@@ -99,7 +99,7 @@ message EvmHookSlotKey {
   /**
    * The id of the EVM hook that owns this slot.
    */
-  proto.services.HookId hook_id = 1;
+  proto.services.HookID hook_id = 1;
 
   /**
    * The EVM key of this slot. Must be the minimal bytes representation

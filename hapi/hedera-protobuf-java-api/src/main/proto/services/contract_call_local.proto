@@ -107,7 +107,7 @@ message ContractCallLocalQuery {
     /**
      * The account that is the "sender" for this contract call.
      * <p>
-     * If this is not set it SHALL be interpreted as the accountId from the
+     * If this is not set it SHALL be interpreted as the accountID from the
      * associated transactionId.<br/>
      * If this is set then either the associated transaction or the foreign
      * transaction data MUST be signed by the referenced account.

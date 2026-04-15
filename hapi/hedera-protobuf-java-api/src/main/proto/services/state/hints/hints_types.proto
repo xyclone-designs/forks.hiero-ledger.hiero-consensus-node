@@ -30,7 +30,7 @@ option java_multiple_files = true;
  * The id of a party in a hinTS scheme with a certain
  * number of parties.
  */
-message HintsPartyId {
+message HintsPartyID {
   /**
    * The party id, in the range [0, num_parties).
    */
@@ -84,7 +84,7 @@ message PreprocessedKeys {
  * The id for a node's vote for the output of the
  * preprocessing output of a hinTS construction.
  */
-message PreprocessingVoteId {
+message PreprocessingVoteID {
   /**
    * The construction this vote is connected to.
    */
@@ -116,7 +116,7 @@ message PreprocessingVote {
 /**
  * A node's hinTS party id.
  */
-message NodePartyId {
+message NodePartyID {
   /**
    * The node id.
    */
@@ -125,6 +125,10 @@ message NodePartyId {
    * The party id.
    */
   uint32 party_id = 2;
+  /**
+   * The party's weight in the construction.
+   */
+  uint64 party_weight = 3;
 }
 
 /**
@@ -139,7 +143,7 @@ message HintsScheme {
   /**
    * The final party ids assigned to each node in the target roster.
    */
-  repeated NodePartyId node_party_ids = 2;
+  repeated NodePartyID node_party_ids = 2;
 }
 
 /**

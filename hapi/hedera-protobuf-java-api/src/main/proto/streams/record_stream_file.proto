@@ -46,7 +46,7 @@ message RecordStreamFile {
   /**
    * Running Hash of all RecordStreamItems before writing this file.
    */
-  HashObject start_object_running_hash = 2;
+  proto.streams.HashObject start_object_running_hash = 2;
 
   /**
    * List of all the record stream items from that period.
@@ -56,7 +56,7 @@ message RecordStreamFile {
   /**
    * Running Hash of all RecordStreamItems before closing this file.
    */
-  HashObject end_object_running_hash = 4;
+  proto.streams.HashObject end_object_running_hash = 4;
 
   /**
    * The block number associated with this period.
@@ -86,7 +86,7 @@ message SidecarMetadata {
   /**
    * The hash of the entire file.
    */
-  HashObject hash = 1;
+  proto.streams.HashObject hash = 1;
 
   /**
    * The id of the sidecar record file

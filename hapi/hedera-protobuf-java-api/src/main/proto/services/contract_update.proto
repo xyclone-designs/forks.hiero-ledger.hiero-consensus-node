@@ -101,7 +101,7 @@ message ContractUpdateTransactionBody {
      * If set, modify the duration added to expiration time by each
      * auto-renewal to this value.
      */
-    Duration autoRenewPeriod = 7;
+    proto.services.Duration autoRenewPeriod = 7;
 
     /**
      * This field is unused and SHALL NOT modify the contract state.<br/>
@@ -194,4 +194,14 @@ message ContractUpdateTransactionBody {
      * without reward.
      */
     google.protobuf.BoolValue decline_reward = 15;
+
+    /**
+     * The ids the hooks to delete from the contract.
+     */
+    repeated int64 hook_ids_to_delete = 16;
+
+    /**
+     * The hooks to create for the contract.
+     */
+    repeated proto.services.HookCreationDetails hook_creation_details = 17;
 }

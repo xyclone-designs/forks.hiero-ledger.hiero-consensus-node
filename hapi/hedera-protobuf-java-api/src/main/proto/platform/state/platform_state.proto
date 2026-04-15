@@ -82,6 +82,14 @@ message PlatformState {
      */
     proto.services.Timestamp last_frozen_time = 5;
 
+    /**
+     * The number of the latest round that was a freeze round. If this round
+     * is a freeze round, then the value is the same as the current round. It
+     * is set after executing all transactions in this round. <br/>
+     * If there has never been a freeze round, this SHALL be zero.<br/>
+     */
+    uint64 latest_freeze_round = 6;
+
     // Fields below are to be deprecated in the foreseeable future.
 
     /**
@@ -182,14 +190,14 @@ message ConsensusSnapshot {
     /*
      * A list of judge creator ids and its hashes in a round.<br/>
      */
-    repeated JudgeId judge_ids = 6;
+    repeated JudgeID judge_ids = 6;
 }
 
 /**
  * A judge information that includes the creator node ID and the
  * SHA-384 hash value of the judge.
  */
-message JudgeId {
+message JudgeID {
     /**
      * The creator node ID who created this judge.
      */
@@ -226,9 +234,38 @@ message MinimumJudgeInfo {
  * A consensus node identifier.<br/>
  * This value uniquely identifies a single consensus node within the network.
  */
-message NodeId {
+message NodeID {
   /**
    * A numeric identifier.
    */
   uint64 id = 1;
+}
+
+/**
+  * A set of signatures from consensus nodes.<br/>
+  * This message contains a list of node ID and signature pairs.
+ */
+message SigSet {
+    /**
+     * A list of node ID and signature pairs.
+     */
+    repeated NodeIdSignaturePair nodeIdSignaturePairs = 1;
+}
+/**
+  * A pair of node ID and signature bytes.<br/>
+  * This message contains a node ID, signature type, and signature bytes.
+ */
+message NodeIdSignaturePair {
+    /**
+      * A node identifier.<br/>
+     */
+    int64 nodeID = 1;
+    /**
+      * A signature type.<br/>
+     */
+    int32 signatureType = 2;
+    /**
+      * Signature bytes.<br/>
+     */
+    bytes signatureBytes = 3;
 }

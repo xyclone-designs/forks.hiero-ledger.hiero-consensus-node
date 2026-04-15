@@ -61,7 +61,7 @@ option java_multiple_files = true;
  * the block containing that change, which SHALL be verified with the _prior_
  * ledger identifier.
  */
-message LedgerId {
+message LedgerID {
 
   /**
    * A public key.<br/>

@@ -182,7 +182,7 @@ message StateKey {
     /**
      * A state identifier for pending airdrops. 
      */
-    proto.services.PendingAirdropId TokenService_I_PENDING_AIRDROPS = 25;
+    proto.services.PendingAirdropID TokenService_I_PENDING_AIRDROPS = 25;
 
     /**
      * A state identifier for the rosters. 
@@ -228,37 +228,37 @@ message StateKey {
     /**
      * A state identifier for hinTS key sets. 
      */    
-    proto.services.state.hints.HintsPartyId HintsService_I_HINTS_KEY_SETS = 37;
+    proto.services.state.hints.HintsPartyID HintsService_I_HINTS_KEY_SETS = 37;
 
     /**
      * A state identifier for hinTS preprocessing output votes. 
      */    
-    proto.services.state.hints.PreprocessingVoteId HintsService_I_PREPROCESSING_VOTES = 40;
+    proto.services.state.hints.PreprocessingVoteID HintsService_I_PREPROCESSING_VOTES = 40;
 
     /**
      * A state identifier for history proof key sets. 
      */    
-    proto.platform.state.NodeId HistoryService_I_PROOF_KEY_SETS = 43;
+    proto.platform.state.NodeID HistoryService_I_PROOF_KEY_SETS = 43;
 
     /**
      * A state identifier for signatures on roster transition histories. 
      */    
-    proto.services.state.history.ConstructionNodeId HistoryService_I_HISTORY_SIGNATURES = 46;
+    proto.services.state.history.ConstructionNodeID HistoryService_I_HISTORY_SIGNATURES = 46;
 
     /**
      * A state identifier for votes on history proofs. 
      */    
-    proto.services.state.history.ConstructionNodeId HistoryService_I_PROOF_VOTES = 47;
+    proto.services.state.history.ConstructionNodeID HistoryService_I_PROOF_VOTES = 47;
 
     /**
      * A state identifier for the CRS publications. 
      */    
-    proto.platform.state.NodeId HintsService_I_CRS_PUBLICATIONS = 49;
+    proto.platform.state.NodeID HintsService_I_CRS_PUBLICATIONS = 49;
 
     /**
      * A state identifier for EVM hook states.
      */
-    proto.services.HookId ContractService_I_EVM_HOOK_STATES = 51;
+    proto.services.HookID ContractService_I_EVM_HOOK_STATES = 51;
 
     /**
      * A state identifier for EVM hook storage.
@@ -273,7 +273,7 @@ message StateKey {
     /**
      * A state identifier for WRAPS message histories used in a roster transition proof.
      */
-    proto.services.state.history.ConstructionNodeId HistoryService_I_WRAPS_MESSAGE_HISTORIES = 54;
+    proto.services.state.history.ConstructionNodeID HistoryService_I_WRAPS_MESSAGE_HISTORIES = 54;
 
     /**
      * A state identifier for registered nodes.
@@ -616,7 +616,7 @@ message StateValue {
     /**
      * A state identifier for account to node relationships.
      */
-    proto.platform.state.NodeId AddressBookService_I_ACCOUNT_NODE_REL = 53;
+    proto.platform.state.NodeID AddressBookService_I_ACCOUNT_NODE_REL = 53;
 
     /**
      * A state identifier for WRAPS message histories used in a roster transition proof.
@@ -636,7 +636,7 @@ message StateValue {
     /**
      * A state identifier for the next node Identifier. Singleton state.
      */
-    proto.platform.state.NodeId EntityIdService_I_HIGHEST_NODE_ID = 57;
+    proto.platform.state.NodeID EntityIdService_I_HIGHEST_NODE_ID = 57;
 
     /**
      * A state identifier for the expected WRAPS proving key hash. Singleton state.

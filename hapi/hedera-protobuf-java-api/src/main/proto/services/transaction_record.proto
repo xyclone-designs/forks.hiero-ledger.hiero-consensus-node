@@ -224,6 +224,15 @@ message TransactionRecord {
      * or when the recipient has set `receiver_sig_required`.
      */
     repeated PendingAirdropRecord new_pending_airdrops = 22;
+
+    /**
+     * A high volume pricing multiplier.
+     * <p>
+     * This SHALL be the multiplier that is applied to the transaction
+     * fees charged for this transaction if the high volume flag is set.
+     * This is scaled by 1000.
+     */
+    uint64 high_volume_pricing_multiplier = 23;
 }
 
 /**
@@ -235,7 +244,7 @@ message PendingAirdropRecord {
      * <p>
      * This field is REQUIRED.
      */
-    PendingAirdropId pending_airdrop_id = 1;
+    PendingAirdropID pending_airdrop_id = 1;
 
     /**
      * A single pending airdrop amount.

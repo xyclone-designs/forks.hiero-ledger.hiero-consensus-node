@@ -67,7 +67,7 @@ message AccountPendingAirdrop {
      * This SHALL match `pending_airdrop_id` if this is the only entry
      * in the "list".
      */
-    PendingAirdropId previous_airdrop = 2;
+    PendingAirdropID previous_airdrop = 2;
 
     /**
      * A pending airdrop identifier.<br/>
@@ -79,5 +79,5 @@ message AccountPendingAirdrop {
      * This SHALL match `pending_airdrop_id` if this is the only entry
      * in the "list".
      */
-    PendingAirdropId next_airdrop = 3;
+    PendingAirdropID next_airdrop = 3;
 }

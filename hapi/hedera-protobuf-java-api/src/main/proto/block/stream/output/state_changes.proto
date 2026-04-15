@@ -839,7 +839,7 @@ message MapChangeKey {
         /**
          * A change to a virtual map keyed by pending airdrop id identifier.
          */
-        proto.services.PendingAirdropId pending_airdrop_id_key = 14;
+        proto.services.PendingAirdropID pending_airdrop_id_key = 14;
 
         /**
          * An exact date and time,  with a resolution of one second
@@ -869,22 +869,22 @@ message MapChangeKey {
         /**
          * A hinTS party id key.
          */
-        proto.services.state.hints.HintsPartyId hints_party_id_key = 19;
+        proto.services.state.hints.HintsPartyID hints_party_id_key = 19;
 
         /**
          * A hinTS preprocessing vote id key.
          */
-        proto.services.state.hints.PreprocessingVoteId preprocessing_vote_id_key = 20;
+        proto.services.state.hints.PreprocessingVoteID preprocessing_vote_id_key = 20;
 
         /**
          * An unscoped node id key.
          */
-        proto.platform.state.NodeId node_id_key = 21;
+        proto.platform.state.NodeID node_id_key = 21;
 
         /**
          * A construction-scoped node id key.
          */
-        proto.services.state.history.ConstructionNodeId construction_node_id_key = 22;
+        proto.services.state.history.ConstructionNodeID construction_node_id_key = 22;
     }
 }
 

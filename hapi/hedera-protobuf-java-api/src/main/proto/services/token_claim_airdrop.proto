@@ -62,5 +62,5 @@ message TokenClaimAirdropTransactionBody {
      * This list MUST contain between 1 and 10 entries, inclusive.<br/>
      * This list MUST NOT have any duplicate entries.
      */
-    repeated PendingAirdropId pending_airdrops = 1;
+    repeated PendingAirdropID pending_airdrops = 1;
 }

@@ -19,7 +19,7 @@ message HookStoreTransactionBody {
   /**
    * The id of the EVM hook whose storage is being updated.
    */
-  proto.services.HookId hook_id = 1;
+  proto.services.HookID hook_id = 1;
 
   /**
    * The updates to the storage of the EVM hook.

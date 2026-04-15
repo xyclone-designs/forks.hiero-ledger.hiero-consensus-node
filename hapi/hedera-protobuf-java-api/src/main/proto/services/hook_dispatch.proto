@@ -19,12 +19,12 @@ message HookDispatchTransactionBody {
     /**
      * The id of the hook to delete.
      */
-    proto.services.HookId hook_id_to_delete = 1;
+    proto.services.HookID hook_id_to_delete = 1;
 
     /**
      * Creation details for a new hook.
      */
-    HookCreation creation = 2;
+    proto.services.HookCreation creation = 2;
 
     /**
      * Execution details of an existing hook.
@@ -40,7 +40,7 @@ message HookExecution {
   /**
    * The id of the hook's entity.
    */
-  proto.services.HookEntityId hook_entity_id = 1;
+  proto.services.HookEntityID hook_entity_id = 1;
 
   /**
    * The details of the call, including which hook id to call.

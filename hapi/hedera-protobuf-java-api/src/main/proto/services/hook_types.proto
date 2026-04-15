@@ -28,7 +28,7 @@ message HookCreation {
   /**
    * The id of the hook's entity.
    */
-  proto.services.HookEntityId entity_id = 1;
+  proto.services.HookEntityID entity_id = 1;
 
   /**
    * The creation details.

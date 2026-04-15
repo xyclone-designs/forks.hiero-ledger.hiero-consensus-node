@@ -68,7 +68,7 @@ option java_multiple_files = true;
  * (in addition to the sender's signature).<br/>
  * As with all network entities, Account ID SHALL be represented as
  * shard.realm.X.<br/>
- * Alias and contractId SHALL be additional identifiers used to connect accounts
+ * Alias and contractID SHALL be additional identifiers used to connect accounts
  * to transactions before the account is fully enabled,
  * or in EVM contracts.<br/>
  *
@@ -467,7 +467,7 @@ message Account {
      * This value SHALL NOT be empty if this account is "sender" for any
      * pending airdrop, and SHALL be empty otherwise.
      */
-    PendingAirdropId head_pending_airdrop_id = 34;
+    PendingAirdropID head_pending_airdrop_id = 34;
 
     /**
      * A number of pending airdrops.
@@ -481,6 +481,32 @@ message Account {
      * identified by `head_pending_airdrop_id`.
      */
     uint64 number_pending_airdrops = 35;
+
+    /**
+     * The number of hooks currently in use on this account.
+     */
+    uint64 number_hooks_in_use = 36;
+
+    /**
+     * If the account has more than zero hooks in use, the id of the first hook in its
+     * doubly-linked list of hooks.
+     */
+    int64 first_hook_id = 37;
+
+    /**
+     * The number of storage slots in use by this account's EVM hooks.
+     */
+    uint64 number_evm_hook_storage_slots = 38;
+
+    /**
+     * The delegated contract address set for this account.
+     * <p>
+     * If this field is set on the account, anytime a call is made to the account's address
+     * (either an EVM call within HSCS or a child call dispatched by CryptoTransfer)
+     * the EVM code of the contract referenced by `delegation_address` will be
+     * executed in the context of the account.
+     */
+    bytes delegation_address = 39;
 }
 
 /**

@@ -169,7 +169,7 @@ message ContractCreateTransactionBody {
      * This value MUST be greater than the configured MIN_AUTORENEW_PERIOD.<br/>
      * This value MUST be less than the configured MAX_AUTORENEW_PERIOD.<br/>
      */
-    Duration autoRenewPeriod = 8;
+    proto.services.Duration autoRenewPeriod = 8;
 
     /**
      * An array of bytes containing the EVM-encoded parameters to pass to
@@ -188,7 +188,7 @@ message ContractCreateTransactionBody {
      * The shard in which to create the new smart contract.<br/>
      * This value is currently ignored.
      */
-    ShardID shardID = 10;
+    proto.services.ShardID shardID = 10;
 
     /**
      * <blockquote>Review Question<br/>
@@ -200,7 +200,7 @@ message ContractCreateTransactionBody {
      * The shard/realm in which to create the new smart contract.<br/>
      * This value is currently ignored.
      */
-    RealmID realmID = 11;
+    proto.services.RealmID realmID = 11;
 
     /**
      * <blockquote>Review Question<br/>
@@ -288,4 +288,9 @@ message ContractCreateTransactionBody {
      * without reward.
      */
     bool decline_reward = 19;
+
+    /**
+     * Details of hooks to add immediately after creating this contract.
+     */
+    repeated proto.services.HookCreationDetails hook_creation_details = 20;
 }

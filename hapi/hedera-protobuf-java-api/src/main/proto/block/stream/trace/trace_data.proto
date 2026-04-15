@@ -38,11 +38,11 @@ message TraceData {
     /**
      * EVM trace data.
      */
-    EvmTraceData evm_trace_data = 1;
+    proto.block.stream.trace.EvmTraceData evm_trace_data = 1;
 
     /**
      * Trace data for ConsensusSubmitMessage transactions.
      */
-    SubmitMessageTraceData submit_message_trace_data = 2;
+    proto.block.stream.trace.SubmitMessageTraceData submit_message_trace_data = 2;
   }
 }

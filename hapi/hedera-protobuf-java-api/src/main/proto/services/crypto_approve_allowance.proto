@@ -155,7 +155,7 @@ message NftAllowance {
      * <p>
      * The identified token type MUST be a non-fungible/unique token.
      */
-    proto.services.TokenID tokenId = 1;
+    proto.services.TokenID tokenID = 1;
 
     /**
      * An owner account identifier.<br/>
@@ -230,7 +230,7 @@ message TokenAllowance {
      * <p>
      * The identified token type MUST be a fungible/common token.
      */
-    proto.services.TokenID tokenId = 1;
+    proto.services.TokenID tokenID = 1;
 
     /**
      * An owner account identifier.<br/>

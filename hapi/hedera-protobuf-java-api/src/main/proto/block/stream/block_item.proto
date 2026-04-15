@@ -140,7 +140,7 @@ import "platform/event/event_transaction.proto";
  */
 message BlockItem {
     // Reserved for future items that are neither "input" nor "output".
-    reserved 11,12,13,14,15;
+    reserved 13,14,15,16,17,18,20;
 
     oneof item {
         /**
@@ -254,6 +254,27 @@ message BlockItem {
          * </ul>
          */
         proto.block.stream.RecordFileItem record_file = 10;
+        /**
+         * A trace data.
+         * <p>
+         * Any informational trace data MAY be described by
+         * stream items of this type.<br/>
+         */
+        proto.block.stream.trace.TraceData trace_data = 11;
+
+        /**
+         * Hashes at the end of each block.
+         * <p>
+         * This footer SHALL signal the end of information to include
+         * in a block's hashed content.<br/>
+         * One or more Block Proof items SHALL follow this item.
+         */
+        proto.block.stream.output.BlockFooter block_footer = 12;
+
+        /**
+         * A block item intentionally redacted from the stream.
+         */
+        RedactedItem redacted_item = 19;
     }
 }
 
@@ -288,4 +309,105 @@ message FilteredItemHash {
      * item filtered from the stream.
      */
     uint64 filtered_path = 3;
+}
+
+message FilteredSingleItem {
+    /**
+     * A hash of an item filtered from the stream.
+     * <p>
+     * The hash algorithm used MUST match the hash algorithm specified in
+     * the block header for the containing block.<br/>
+     * This field is REQUIRED.
+     */
+    bytes item_hash = 1;
+
+    /**
+     * This tells you which of the block merkle sub trees to add the item hash into
+     * <p>
+     * This REQUIRED field SHALL describe the type of filtered item
+     */
+    SubMerkleTree tree = 2;
+}
+
+/**
+ * Filtered Block Item representing a complete block sub merkle tree that has been
+ * filtered out and replaced by a hash.
+ */
+message FilteredMerkleSubTree {
+    /**
+     * Root hash of a sub-merkle tree
+     */
+    bytes subtree_root_hash = 1;
+
+    /**
+     * This tells you which of the block merkle sub trees the hash is the root for
+     */
+    SubMerkleTree tree = 2;
+
+    /**
+     * The number of leaves filtered by this FilteredMerkleSubTree.
+     */
+    uint32 filtered_leaf_count = 3;
+}
+
+/**
+ * Verification data for an item redacted from the stream.
+ *
+ * Presence of `redacted_item` entries SHALL NOT prevent verification
+ * of a block.<br/>
+ */
+message RedactedItem {
+    /**
+     * A hash of an item redacted from the stream.
+     * <p>
+     * The hash algorithm used MUST match the hash algorithm specified in
+     * the block header for the containing block.<br/>
+     * This field is REQUIRED.
+     */
+    bytes item_hash = 1;
+
+    /**
+     * When this redacted item is a SignedTransaction, this value is the
+     * hash of that SignedTransaction directly, without the BlockItem
+     * wrapper. This is needed for event reconstruction. The
+     * signed_transaction_hash will only be set for event transactions,
+     * synthetic transactions will have empty value.
+     * <p>
+     * The hash algorithm used MUST match the hash algorithm specified in
+     * the block header for the containing block.<br/>
+     * This value SHALL NOT be provided if the original item MUST NOT be
+     * included in an event hash.
+     */
+    bytes signed_transaction_hash = 2;
+
+    /**
+     * This tells you which of the block merkle sub trees to add the
+     * item hash into
+     * <p>
+     * This REQUIRED field SHALL describe the type of filtered item
+     */
+    SubMerkleTree tree = 3;
+}
+
+/**
+ * Identifier for each sub-tree of the block root fixed size tree
+ */
+enum SubMerkleTree {
+    ITEM_TYPE_UNSPECIFIED = 0;  // Default value, required best practice
+    PREVIOUS_BLOCK_ROOT = 1;
+    PREVIOUS_ROOTS_TREE = 2;
+    PREVIOUS_BLOCK_START_STATE = 3;
+    CONSENSUS_HEADER_ITEMS = 4;
+    INPUT_ITEMS_TREE = 5;
+    OUTPUT_ITEMS_TREE = 6;
+    STATE_CHANGE_ITEMS_TREE = 7;
+    TRACE_DATA_ITEMS_TREE = 8;
+    FUTURE_1 = 9; // these place holders for future use sub trees, will be renamed if they are used later
+    FUTURE_2 = 10;
+    FUTURE_3 = 11;
+    FUTURE_4 = 12;
+    FUTURE_5 = 13;
+    FUTURE_6 = 14;
+    FUTURE_7 = 15;
+    FUTURE_8 = 16;
 }

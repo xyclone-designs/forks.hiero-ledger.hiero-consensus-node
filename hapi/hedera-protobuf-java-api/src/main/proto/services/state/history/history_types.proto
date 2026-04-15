@@ -176,7 +176,7 @@ message WrapsSigningState {
 /**
  * A construction-scoped node id.
  */
-message ConstructionNodeId {
+message ConstructionNodeID {
   /**
    * The unique id of a history proof construction.
    */

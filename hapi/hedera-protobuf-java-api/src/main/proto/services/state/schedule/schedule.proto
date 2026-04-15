@@ -115,7 +115,7 @@ message Schedule {
      * If not set, then this schedule SHALL NOT be deleted, and any
      * `schedule_delete` transaction for this schedule SHALL fail.
      */
-    Key admin_key = 8;
+    proto.services.Key admin_key = 8;
 
     /**
      * The transaction valid start value for this schedule.
@@ -223,7 +223,7 @@ message ScheduleIdList {
      * <p>
      * While the order is not _specified_, it MUST be deterministic.
      */
-    repeated ScheduleID schedule_ids = 1;
+    repeated proto.services.ScheduleID schedule_ids = 1;
 }
 
 /**

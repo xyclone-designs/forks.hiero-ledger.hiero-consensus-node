@@ -66,7 +66,7 @@ message GetBySolidityIDQuery {
 }
 
 /**
- * Response to a getBySolidityId query.
+ * Response to a getBySolidityID query.
  *
  * This message returns the account, contract, and file identifiers for
  * a smart contract.
