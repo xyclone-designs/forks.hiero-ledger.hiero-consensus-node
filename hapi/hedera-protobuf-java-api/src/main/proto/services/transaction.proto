@@ -113,6 +113,14 @@ import "services/auxiliary/history/history_proof_signature.proto";
 import "services/auxiliary/history/history_proof_key_publication.proto";
 import "services/auxiliary/history/history_proof_vote.proto";
 
+import "services/hook_store.proto";
+import "services/hook_dispatch.proto";
+import "services/registered_node_create.proto";
+import "services/registered_node_update.proto";
+import "services/registered_node_delete.proto";
+import "services/auxiliary/tss/ledger_id_publication.proto";
+import "services/auxiliary/blockrecords/migration_root_hash_vote.proto";
+
 /**
  * A wrapper around signed transaction bytes.<br/>
  * This was originally a transaction with body, signatures, and/or bytes,

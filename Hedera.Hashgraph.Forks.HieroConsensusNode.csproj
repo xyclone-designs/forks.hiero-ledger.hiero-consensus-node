@@ -30,8 +30,4 @@
 		<ProjectReference Include="..\Hedera.Hashgraph\Hedera.Hashgraph.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Protobuf Include="hapi\hedera-protobuf-java-api\src\main\proto\services\auxiliary\tss\ledger_id_publication.proto" />
-	</ItemGroup>
-
 </Project>
