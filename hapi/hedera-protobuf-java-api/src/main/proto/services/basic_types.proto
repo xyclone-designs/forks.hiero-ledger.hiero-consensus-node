@@ -237,7 +237,7 @@ message NftID {
      * A token identifier.<br/>
      * This token represents the collection containing this NFT.
      */
-    TokenID token_ID = 1;
+    TokenID tokenId = 1;
 
     /**
      * A unique serial number.<br/>
@@ -408,7 +408,7 @@ message TransactionID {
      * <p>
      * The identified account SHALL pay transaction fees for this transaction.
      */
-    AccountID accountID = 2;
+    AccountID accountId = 2;
 
     /**
      * A scheduled transaction flag.<br/>
@@ -523,7 +523,7 @@ message AccountAmount {
     /**
      * An account identifier that will send or receive token(s).
      */
-    AccountID accountID = 1;
+    AccountID accountId = 1;
 
     /**
      * An amount to send (negative) or receive (positive).
@@ -602,12 +602,12 @@ message NftTransfer {
     /**
      * An Account identifier for the sender.
      */
-    AccountID senderAccountID = 1;
+    AccountID senderAccountId = 1;
 
     /**
      * An Account identifier for the receiver.
      */
-    AccountID receiverAccountID = 2;
+    AccountID receiverAccountId = 2;
 
     /**
      * A serial number for the NFT to transfer.
@@ -1056,7 +1056,7 @@ message Key {
          * This key type SHALL require that the code in the active message frame
          * belong to the contract with the given id.
          */
-        ContractID contractID = 1;
+        ContractID contractId = 1;
 
         /**
          * An array of Ed25519 public key bytes.
@@ -1444,7 +1444,7 @@ enum HederaFunctionality {
     /**
      * Get a smart contract record by reference to the solidity ID.
      */
-    GetBySolidityID = 19;
+    GetBySolidityId = 19;
 
     /**
      * Get a smart contract by reference to the contract key.
@@ -2186,7 +2186,7 @@ message NodeAddress {
      * <p>
      * A `0.0.101` field
      */
-    int64 nodeID = 5;
+    int64 nodeId = 5;
 
     /**
      * An account to be paid the "node" portion of transaction fees.<br/>
@@ -2194,7 +2194,7 @@ message NodeAddress {
      * <p>
      * A `0.0.101` field
      */
-    AccountID nodeAccountID = 6;
+    AccountID nodeAccountId = 6;
 
     /**
      * A hash of the node's TLS certificate.
@@ -2365,7 +2365,7 @@ message TokenRelationship {
      * <p>
      * This MUST match an existing token that is not deleted.
      */
-    TokenID tokenID = 1;
+    TokenID tokenId = 1;
 
     /**
      * A token symbol.
@@ -2442,7 +2442,7 @@ message TokenBalance {
     /**
      * A token identifier.
      */
-    TokenID tokenID = 1;
+    TokenID tokenId = 1;
 
     /**
      * A number of transferable units of the identified token.

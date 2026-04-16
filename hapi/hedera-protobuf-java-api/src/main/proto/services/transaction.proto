@@ -209,7 +209,7 @@ message TransactionBody {
      * This identifier MUST NOT set the `scheduled` flag.<br/>
      * This identifier MUST NOT set a nonce value.
      */
-    proto.services.TransactionID transactionID = 1;
+    proto.services.TransactionID transactionId = 1;
 
     /**
      * A node account identifier.
@@ -217,7 +217,7 @@ message TransactionBody {
      * This MUST identify the account of the consensus node to which
      * this transaction is submitted.
      */
-    proto.services.AccountID nodeAccountID = 2;
+    proto.services.AccountID nodeAccountId = 2;
 
     /**
      * A maximum transaction fee, in tinybar.

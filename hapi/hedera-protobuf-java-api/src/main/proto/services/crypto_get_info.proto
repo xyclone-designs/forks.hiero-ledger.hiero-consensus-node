@@ -60,7 +60,7 @@ message CryptoGetInfoQuery {
     /**
      * The account ID for which information is requested
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 }
 
 /**
@@ -113,7 +113,7 @@ message CryptoGetInfoResponse {
          * An account identifier, when assigned to this field, SHALL be of
          * the form `shard.realm.number`.
          */
-        proto.services.AccountID accountID = 1;
+        proto.services.AccountID accountId = 1;
 
         /**
          * A Solidity ID.
@@ -123,7 +123,7 @@ message CryptoGetInfoResponse {
          * This SHALL be formatted as a string according to Solidity ID
          * standards.
          */
-        string contractAccountID = 2;
+        string contractAccountId = 2;
 
         /**
          * A boolean indicating that this account is deleted.
@@ -138,7 +138,7 @@ message CryptoGetInfoResponse {
          * this account is not currently staking its balances, then this field,
          * if set, SHALL be the sentinel value of `0.0.0`.
          */
-        proto.services.AccountID proxyAccountID = 4 [deprecated = true];
+        proto.services.AccountID proxyAccountId = 4 [deprecated = true];
 
         /**
          * Replaced by StakingInfo.<br/>

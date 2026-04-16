@@ -63,7 +63,7 @@ message CryptoGetAccountRecordsQuery {
      * <p>
      * This field is REQUIRED.
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 }
 
 /**
@@ -85,7 +85,7 @@ message CryptoGetAccountRecordsResponse {
      * <p>
      * This field SHALL match the requested account identifier.
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 
     /**
      * A list of records.

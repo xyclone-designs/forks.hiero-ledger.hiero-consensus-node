@@ -54,7 +54,7 @@ message ConsensusMessageChunkInfo {
      * <p>
      * This MUST be set for every chunk in a fragmented message.
      */
-    proto.services.TransactionID initialTransactionID = 1;
+    proto.services.TransactionID initialTransactionId = 1;
 
     /**
      * The total number of chunks in the message.
@@ -88,7 +88,7 @@ message ConsensusSubmitMessageTransactionBody {
     /**
      * Topic to submit message to.
      */
-    proto.services.TopicID topicID = 1;
+    proto.services.TopicID topicId = 1;
 
     /**
      * A message to be submitted.

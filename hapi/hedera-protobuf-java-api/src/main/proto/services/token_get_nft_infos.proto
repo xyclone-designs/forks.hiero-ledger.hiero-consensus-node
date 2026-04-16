@@ -60,7 +60,7 @@ message TokenGetNftInfosQuery {
      * The identified token MUST exist, MUST NOT be deleted, and MUST be
      * a non-fungible/unique type.
      */
-    proto.services.TokenID tokenID = 2;
+    proto.services.TokenID tokenId = 2;
 
     /**
      * Specifies the start index (inclusive) of the range of NFTs to query for.
@@ -93,7 +93,7 @@ message TokenGetNftInfosResponse {
      * The identified token MUST exist, and MUST NOT be deleted.
      * The identified token MUST be a non-fungible/unique type.
      */
-    proto.services.TokenID tokenID = 2;
+    proto.services.TokenID tokenId = 2;
 
     /**
      * A list of messages, each of which describes one NFT.

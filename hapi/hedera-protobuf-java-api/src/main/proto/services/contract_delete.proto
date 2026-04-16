@@ -70,7 +70,7 @@ message ContractDeleteTransactionBody {
      * <p>
      * This field is REQUIRED.
      */
-    proto.services.ContractID contractID = 1;
+    proto.services.ContractID contractId = 1;
 
     oneof obtainers {
         /**
@@ -79,7 +79,7 @@ message ContractDeleteTransactionBody {
          * This account SHALL receive all HBAR and other tokens still owned by
          * the contract that is removed.
          */
-        proto.services.AccountID transferAccountID = 2;
+        proto.services.AccountID transferAccountId = 2;
 
         /**
          * A contract ID recipient.
@@ -87,7 +87,7 @@ message ContractDeleteTransactionBody {
          * This contract SHALL receive all HBAR and other tokens still owned by
          * the contract that is removed.
          */
-        proto.services.ContractID transferContractID = 3;
+        proto.services.ContractID transferContractId = 3;
     }
 
     /**

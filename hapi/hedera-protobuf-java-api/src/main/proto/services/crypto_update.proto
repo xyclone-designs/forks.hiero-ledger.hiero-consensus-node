@@ -90,7 +90,7 @@ message CryptoUpdateTransactionBody {
      * An account identifier for a "proxy" account. This account's HBAR are
      * staked to a node selected by the proxy account.
      */
-    proto.services.AccountID proxyAccountID = 4 [deprecated = true];
+    proto.services.AccountID proxyAccountId = 4 [deprecated = true];
 
     /**
      * Removed prior to the first available history.<br/>

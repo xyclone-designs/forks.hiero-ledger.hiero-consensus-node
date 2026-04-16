@@ -61,18 +61,18 @@ message TransactionReceipt {
     /**
      * In the receipt of a `CryptoCreate`, the id of the newly created account.
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 
     /**
      * In the receipt of a `FileCreate`, the id of the newly created file.
      */
-    proto.services.FileID fileID = 3;
+    proto.services.FileID fileId = 3;
 
     /**
      * In the receipt of a `ContractCreate`, the id of the newly created
      * contract.
      */
-    proto.services.ContractID contractID = 4;
+    proto.services.ContractID contractId = 4;
 
     /**
      * The exchange rates in effect when the transaction reached consensus.
@@ -83,7 +83,7 @@ message TransactionReceipt {
      * In the receipt of a `ConsensusCreateTopic`, the id of the newly
      * created topic.
      */
-    proto.services.TopicID topicID = 6;
+    proto.services.TopicID topicId = 6;
 
     /**
      * In the receipt of a `ConsensusSubmitMessage`, the new sequence
@@ -174,7 +174,7 @@ message TransactionReceipt {
     /**
      * In the receipt of a `CreateToken`, the id of the newly created token
      */
-    proto.services.TokenID tokenID = 10;
+    proto.services.TokenID tokenId = 10;
 
     /**
      * In the receipt of `TokenMint`, `TokenWipe`, or `TokenBurn`.<br/>
@@ -187,7 +187,7 @@ message TransactionReceipt {
      * In the receipt of a `ScheduleCreate`, the id of the newly created
      * Scheduled Entity
      */
-    proto.services.ScheduleID scheduleID = 12;
+    proto.services.ScheduleID scheduleId = 12;
 
     /**
      * In the receipt of a `ScheduleCreate` or `ScheduleSign` that enables the
@@ -195,7 +195,7 @@ message TransactionReceipt {
      * should be used to query for the receipt or record of the scheduled
      * transaction that was executed.
      */
-    proto.services.TransactionID scheduledTransactionID = 13;
+    proto.services.TransactionID scheduledTransactionId = 13;
 
     /**
      * In the receipt of a `TokenMint` for non-fungible/unique tokens,

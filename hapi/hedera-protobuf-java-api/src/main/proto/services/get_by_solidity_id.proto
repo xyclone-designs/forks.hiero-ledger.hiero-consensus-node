@@ -62,7 +62,7 @@ message GetBySolidityIDQuery {
      * <p>
      * This field is REQUIRED.
      */
-    string solidityID = 2;
+    string solidityId = 2;
 }
 
 /**
@@ -85,7 +85,7 @@ message GetBySolidityIDResponse {
      * <p>
      * This SHALL identify an account that backs the requested smart contract.
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 
     /**
      * A file identifier.
@@ -93,12 +93,12 @@ message GetBySolidityIDResponse {
      * This SHALL identify a file, the contents of which are the EVM
      * bytecode for the requested smart contract.
      */
-    proto.services.FileID fileID = 3;
+    proto.services.FileID fileId = 3;
 
     /**
      * A contract identifier.
      * <p>
      * This SHALL identify the requested smart contract.
      */
-    proto.services.ContractID contractID = 4;
+    proto.services.ContractID contractId = 4;
 }

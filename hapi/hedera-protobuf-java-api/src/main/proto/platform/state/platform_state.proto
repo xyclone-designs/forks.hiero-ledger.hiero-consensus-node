@@ -259,7 +259,7 @@ message NodeIdSignaturePair {
     /**
       * A node identifier.<br/>
      */
-    int64 nodeID = 1;
+    int64 nodeId = 1;
     /**
       * A signature type.<br/>
      */

@@ -86,7 +86,7 @@ message EntityID {
         /**
          * The Account ID for the cryptocurrency account
          */
-        proto.services.AccountID accountID = 1;
+        proto.services.AccountID accountId = 1;
 
         /**
          * A uniquely identifying livehash of an account
@@ -96,12 +96,12 @@ message EntityID {
         /**
          * The file ID of the file
          */
-        proto.services.FileID fileID = 3;
+        proto.services.FileID fileId = 3;
 
         /**
          * The smart contract ID that identifies instance
          */
-        proto.services.ContractID contractID = 4;
+        proto.services.ContractID contractId = 4;
 
     }
 }

@@ -54,7 +54,7 @@ message ContractGetBytecodeQuery {
      * <p>
      * The network SHALL return bytecode for this smart contract, if successful.
      */
-    proto.services.ContractID contractID = 2;
+    proto.services.ContractID contractId = 2;
 }
 
 /**

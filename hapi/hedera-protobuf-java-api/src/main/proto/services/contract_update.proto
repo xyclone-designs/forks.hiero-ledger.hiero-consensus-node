@@ -63,7 +63,7 @@ message ContractUpdateTransactionBody {
      * The contact ID that identifies the smart contract to be updated.<br/>
      * This field MUST be set, and MUST NOT be a default ID (`0.0.0`).
      */
-    proto.services.ContractID contractID = 1;
+    proto.services.ContractID contractId = 1;
 
     /**
      * If set, modify the time at which this contract will expire.<br/>
@@ -96,7 +96,7 @@ message ContractUpdateTransactionBody {
      * This field is unused and SHALL NOT modify the contract state.<br/>
      * The id of an account to which the contract is proxy staked
      */
-    proto.services.AccountID proxyAccountID = 6 [deprecated = true];
+    proto.services.AccountID proxyAccountId = 6 [deprecated = true];
 
     /**
      * If set, modify the duration added to expiration time by each
@@ -109,7 +109,7 @@ message ContractUpdateTransactionBody {
      * Previously, an ID of a file containing the bytecode of the Solidity
      * transaction that created this contract.
      */
-    proto.services.FileID fileID = 8 [deprecated = true];
+    proto.services.FileID fileId = 8 [deprecated = true];
 
     // This should be condensed to just a field instead of a oneof and field 9 reserved.
     oneof memoField {

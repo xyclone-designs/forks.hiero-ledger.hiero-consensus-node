@@ -153,7 +153,7 @@ message ScheduleCreateTransactionBody {
      * transaction _when it executes_, the scheduled transaction
      * SHALL fail with `INSUFFICIENT_PAYER_BALANCE`.<br/>
      */
-    proto.services.AccountID payerAccountID = 4;
+    proto.services.AccountID payerAccountId = 4;
 
     /**
      * An expiration time.

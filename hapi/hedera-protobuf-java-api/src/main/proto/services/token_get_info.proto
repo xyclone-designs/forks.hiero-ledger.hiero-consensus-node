@@ -72,7 +72,7 @@ message TokenInfo {
     /**
      * A unique identifier for this token.
      */
-    proto.services.TokenID tokenID = 1;
+    proto.services.TokenID tokenId = 1;
 
     /**
      * A human-readable name for this token.

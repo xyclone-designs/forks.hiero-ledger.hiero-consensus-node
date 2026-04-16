@@ -34,7 +34,7 @@ message TokenUnitBalance {
     /**
      * A unique token id
      */
-    proto.services.TokenID tokenID = 1;
+    proto.services.TokenID tokenId = 1;
 
     /**
      * Number of transferable units of the identified token. For token of type FUNGIBLE_COMMON -
@@ -51,7 +51,7 @@ message SingleAccountBalances {
     /**
      * The account
      */
-    proto.services.AccountID accountID = 1;
+    proto.services.AccountID accountId = 1;
 
     /**
      * The account's hbar balance

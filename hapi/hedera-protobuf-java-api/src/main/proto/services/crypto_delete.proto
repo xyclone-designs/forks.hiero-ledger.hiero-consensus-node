@@ -63,7 +63,7 @@ message CryptoDeleteTransactionBody {
      * If not set, the account to be deleted MUST NOT have a balance in any
      * token, a balance in HBAR, or hold any NFT.
      */
-    proto.services.AccountID transferAccountID = 1;
+    proto.services.AccountID transferAccountId = 1;
 
     /**
      * An account identifier.
@@ -75,5 +75,5 @@ message CryptoDeleteTransactionBody {
      * This account MUST sign this transaction.<br/>
      * This field MUST be set to a valid account identifier.
      */
-    proto.services.AccountID deleteAccountID = 2;
+    proto.services.AccountID deleteAccountId = 2;
 }

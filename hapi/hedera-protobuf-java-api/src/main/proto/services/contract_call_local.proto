@@ -76,7 +76,7 @@ message ContractCallLocalQuery {
     /**
      * The ID of a smart contract to call.
      */
-    proto.services.ContractID contractID = 2;
+    proto.services.ContractID contractId = 2;
 
     /**
      * The amount of "gas" to use for this call.

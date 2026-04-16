@@ -91,7 +91,7 @@ message Response {
          * A response for a query requesting Contract, Account, and File
          * identifiers for a smart contract, given a Solidity identifier.
          */
-        proto.services.GetBySolidityIDResponse getBySolidityID = 2;
+        proto.services.GetBySolidityIDResponse getBySolidityId = 2;
 
         /**
          * A response for a _local_ call to a query function of a given smart

@@ -56,7 +56,7 @@ message TokenGetAccountNftInfosQuery {
     /**
      * The Account for which information is requested
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 
     /**
      * Specifies the start index (inclusive) of the range of NFTs to query for.

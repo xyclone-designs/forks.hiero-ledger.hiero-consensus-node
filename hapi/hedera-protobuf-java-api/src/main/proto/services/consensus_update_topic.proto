@@ -57,7 +57,7 @@ message ConsensusUpdateTopicTransactionBody {
      * A topic with this ID MUST exist and MUST NOT be deleted.<br/>
      * This value is REQUIRED.
      */
-    proto.services.TopicID topicID = 1;
+    proto.services.TopicID topicId = 1;
 
     /**
      * An updated memo to be associated with this topic.

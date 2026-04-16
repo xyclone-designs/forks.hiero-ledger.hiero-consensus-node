@@ -61,7 +61,7 @@ message ConsensusGetTopicInfoQuery {
      * <p>
      * The network SHALL return information for this topic, if successful.
      */
-    proto.services.TopicID topicID = 2;
+    proto.services.TopicID topicId = 2;
 }
 
 /**
@@ -79,7 +79,7 @@ message ConsensusGetTopicInfoResponse {
     /**
      * The ID of the topic requested in the query.
      */
-    proto.services.TopicID topicID = 2;
+    proto.services.TopicID topicId = 2;
 
 
     /**

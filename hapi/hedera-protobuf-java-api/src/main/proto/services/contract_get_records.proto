@@ -61,7 +61,7 @@ message ContractGetRecordsQuery {
      * <p>
      * The network SHALL return information for this smart contract, if successful.
      */
-    proto.services.ContractID contractID = 2;
+    proto.services.ContractID contractId = 2;
 }
 
 /**
@@ -80,7 +80,7 @@ message ContractGetRecordsResponse {
     /**
      * A smart contract that this response describes.
      */
-    proto.services.ContractID contractID = 2;
+    proto.services.ContractID contractId = 2;
 
     /**
      * A list of records, each with contractCreateResult or contractCallResult as its body

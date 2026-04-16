@@ -69,5 +69,5 @@ message ScheduleSignTransactionBody {
    * <p>
    * This MUST identify the schedule to which signatures SHALL be added.
    */
-  proto.services.ScheduleID scheduleID = 1;
+  proto.services.ScheduleID scheduleId = 1;
 }

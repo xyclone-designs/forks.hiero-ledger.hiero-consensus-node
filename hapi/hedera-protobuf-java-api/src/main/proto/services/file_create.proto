@@ -111,7 +111,7 @@ message FileCreateTransactionBody {
     /**
      * A shard in which this file is created
      */
-    ShardID shardID = 5;
+    ShardID shardId = 5;
 
     /**
      * A realm in which this file is created.
@@ -120,7 +120,7 @@ message FileCreateTransactionBody {
      * Currently, this MUST be `0` for both fields.<br/>
      * If the desired realm is `0.0`, this SHOULD NOT be set.
      */
-    RealmID realmID = 6;
+    RealmID realmId = 6;
 
     /**
      * The "create realm" was never enabled, and

@@ -79,7 +79,7 @@ message SystemUndeleteTransactionBody {
          * The identified file MUST NOT be a "system" file.<br/>
          * This field is REQUIRED.
          */
-        proto.services.FileID fileID = 1;
+        proto.services.FileID fileId = 1;
 
         /**
          * A contract identifier.
@@ -91,6 +91,6 @@ message SystemUndeleteTransactionBody {
          * <p>
          * This option is _unsupported_.
          */
-        proto.services.ContractID contractID = 2;
+        proto.services.ContractID contractId = 2;
     }
 }

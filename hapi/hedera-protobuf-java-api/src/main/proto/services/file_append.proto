@@ -73,7 +73,7 @@ message FileAppendTransactionBody {
      * The identified file MUST NOT be deleted.<br/>
      * The identified file MUST NOT be immutable.
      */
-    proto.services.FileID fileID = 2;
+    proto.services.FileID fileId = 2;
 
     /**
      * An array of bytes to append.<br/>

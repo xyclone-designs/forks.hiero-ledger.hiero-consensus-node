@@ -66,7 +66,7 @@ message FileUpdateTransactionBody {
      * <p>
      * This field is REQUIRED.
      */
-    proto.services.FileID fileID = 1;
+    proto.services.FileID fileId = 1;
 
     /**
      * An expiration timestamp.

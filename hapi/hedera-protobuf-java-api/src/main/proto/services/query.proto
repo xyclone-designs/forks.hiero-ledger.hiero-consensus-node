@@ -93,7 +93,7 @@ message Query {
          * file, or contract identifier to pass to a system contract or
          * precompile.
          */
-        proto.services.GetBySolidityIDQuery getBySolidityID = 2;
+        proto.services.GetBySolidityIDQuery getBySolidityId = 2;
 
         /**
          * Call a function of a smart contract.<br/>

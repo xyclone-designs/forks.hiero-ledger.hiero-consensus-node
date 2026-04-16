@@ -66,7 +66,7 @@ message FileGetInfoQuery {
      * This MUST be the identifier of a file that exists in HFS.<br/>
      * This value SHALL identify the file to be queried.
      */
-    proto.services.FileID fileID = 2;
+    proto.services.FileID fileId = 2;
 }
 
 /**
@@ -87,7 +87,7 @@ message FileGetInfoResponse {
          * This SHALL be the identifier of a file that exists in HFS.<br/>
          * This value SHALL identify the file that was queried.
          */
-        proto.services.FileID fileID = 1;
+        proto.services.FileID fileId = 1;
 
         /**
          * A size, in bytes, for the file.

@@ -77,7 +77,7 @@ message TransactionRecord {
     /**
      * A transaction identifier to the transaction associated to this record.
      */
-    proto.services.TransactionID transactionID = 4;
+    proto.services.TransactionID transactionId = 4;
 
     /**
      * A transaction memo.<br/>

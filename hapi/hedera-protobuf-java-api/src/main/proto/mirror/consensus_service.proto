@@ -34,7 +34,7 @@ message ConsensusTopicQuery {
     /**
      * A required topic ID to retrieve messages for.
      */
-    proto.services.TopicID topicID = 1;
+    proto.services.TopicID topicId = 1;
 
     /**
      * Include messages which reached consensus on or after this time. Defaults to current time if

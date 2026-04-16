@@ -46,7 +46,7 @@ message SlotKey {
     /**
      * The Contract ID of the contract that owns (and pays for) this slot.
      */
-    proto.services.ContractID contractID = 1;
+    proto.services.ContractID contractId = 1;
 
     /**
      * The EVM key of this slot, left-padded with zeros to form a 256-bit word.

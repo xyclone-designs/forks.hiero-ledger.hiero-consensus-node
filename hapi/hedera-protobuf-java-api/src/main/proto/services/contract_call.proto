@@ -54,7 +54,7 @@ message ContractCallTransactionBody {
     /**
      * The ID of a smart contract to call.
      */
-    proto.services.ContractID contractID = 1;
+    proto.services.ContractID contractId = 1;
 
     /**
      * A maximum limit to the amount of gas to use for this call.

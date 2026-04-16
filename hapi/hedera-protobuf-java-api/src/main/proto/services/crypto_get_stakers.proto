@@ -59,7 +59,7 @@ message CryptoGetStakersQuery {
     /**
      * The Account ID for which the records should be retrieved
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 }
 
 /**
@@ -70,7 +70,7 @@ message ProxyStaker {
     /**
      * The Account ID that is proxy staking
      */
-    proto.services.AccountID accountID = 1;
+    proto.services.AccountID accountId = 1;
 
     /**
      * The number of hbars that are currently proxy staked
@@ -87,7 +87,7 @@ message AllProxyStakers {
     /**
      * The Account ID that is being proxy staked to
      */
-    proto.services.AccountID accountID = 1;
+    proto.services.AccountID accountId = 1;
 
     /**
      * Each of the proxy staking accounts, and the amount they are proxy staking

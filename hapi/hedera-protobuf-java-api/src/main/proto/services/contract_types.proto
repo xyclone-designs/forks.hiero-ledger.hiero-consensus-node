@@ -151,7 +151,7 @@ message ContractLoginfo {
      * A contract identifier.<br/>
      * This refers to the contract that generated this log entry.
      */
-    proto.services.ContractID contractID = 1;
+    proto.services.ContractID contractId = 1;
 
     /**
      * A bloom filter.<br/>
@@ -195,7 +195,7 @@ message ContractFunctionResult {
      * A contract identifier.<br/>
      * This identifies the smart contract that defines the function called.
      */
-    proto.services.ContractID contractID = 1;
+    proto.services.ContractID contractId = 1;
 
     /**
      * Result data from the function call.

@@ -56,5 +56,5 @@ message ScheduleDeleteTransactionBody {
    * <p>
    * This MUST identify the schedule which SHALL be deleted.
    */
-  proto.services.ScheduleID scheduleID = 1;
+  proto.services.ScheduleID scheduleId = 1;
 }

@@ -54,7 +54,7 @@ message LiveHash {
     /**
      * An account associated via this live hash to the hashed content.
      */
-    proto.services.AccountID accountID = 1;
+    proto.services.AccountID accountId = 1;
 
     /**
      * A SHA-384 hash of some content that is associated to the account

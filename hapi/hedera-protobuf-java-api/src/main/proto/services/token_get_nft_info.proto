@@ -56,7 +56,7 @@ message TokenGetNftInfoQuery {
      * This SHALL identify the NFT to query.<br/>
      * The identified NFT MUST exist, and MUST NOT be deleted.
      */
-    proto.services.NftID nftID = 2;
+    proto.services.NftID nftId = 2;
 }
 
 /**
@@ -69,12 +69,12 @@ message TokenNftInfo {
      * <p>
      * This SHALL match the NFT requested.<br/>
      */
-    proto.services.NftID nftID = 1;
+    proto.services.NftID nftId = 1;
 
     /**
      * The current owner of the NFT
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 
     /**
      * The effective consensus timestamp at which the NFT was minted

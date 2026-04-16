@@ -97,7 +97,7 @@ message ContractCreateTransactionBody {
          * The contract bytecode is limited in size only by the
          * network file size limit.
          */
-        proto.services.FileID fileID = 1;
+        proto.services.FileID fileId = 1;
 
         /**
          * The source for the smart contract EVM bytecode.
@@ -159,7 +159,7 @@ message ContractCreateTransactionBody {
      * Former field to designate a proxy account for HBAR staking.
      * This field MUST NOT be set.
      */
-    proto.services.AccountID proxyAccountID = 6 [deprecated = true];
+    proto.services.AccountID proxyAccountId = 6 [deprecated = true];
 
     /**
      * The initial lifetime, in seconds, for the smart contract, and the number
@@ -189,7 +189,7 @@ message ContractCreateTransactionBody {
      * The shard in which to create the new smart contract.<br/>
      * This value is currently ignored.
      */
-    proto.services.ShardID shardID = 10;
+    proto.services.ShardID shardId = 10;
 
     /**
      * <blockquote>Review Question<br/>
@@ -201,7 +201,7 @@ message ContractCreateTransactionBody {
      * The shard/realm in which to create the new smart contract.<br/>
      * This value is currently ignored.
      */
-    proto.services.RealmID realmID = 11;
+    proto.services.RealmID realmId = 11;
 
     /**
      * <blockquote>Review Question<br/>

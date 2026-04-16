@@ -57,7 +57,7 @@ message ContractGetInfoQuery {
      * The network SHALL return information for this smart contract,
      * if successful.
      */
-    proto.services.ContractID contractID = 2;
+    proto.services.ContractID contractId = 2;
 }
 
 /**
@@ -81,20 +81,20 @@ message ContractGetInfoResponse {
         /**
          * The ID of the smart contract requested in the query.
          */
-        proto.services.ContractID contractID = 1;
+        proto.services.ContractID contractId = 1;
 
         /**
          * The Account ID for the account entry associated with this
          * smart contract.
          */
-        proto.services.AccountID accountID = 2;
+        proto.services.AccountID accountId = 2;
 
         /**
          * The "Solidity" form contract ID.<br/>
          * This is a hexadecimal string form of the 20-byte EVM address
          * of the contract.
          */
-        string contractAccountID = 3;
+        string contractAccountId = 3;
 
         /**
          * The key that MUST sign any transaction to update or modify this

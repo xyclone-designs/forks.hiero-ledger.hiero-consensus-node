@@ -61,7 +61,7 @@ message CryptoGetLiveHashQuery {
      * The network SHALL return live hash information for this account,
          * if successful.
      */
-    proto.services.AccountID accountID = 2;
+    proto.services.AccountID accountId = 2;
 
     /**
      * The specific SHA-384 live hash to inspect

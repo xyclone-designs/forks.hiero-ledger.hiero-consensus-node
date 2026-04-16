@@ -54,5 +54,5 @@ message ConsensusDeleteTopicTransactionBody {
     /**
      * Topic to be deleted.
      */
-    proto.services.TopicID topicID = 1;
+    proto.services.TopicID topicId = 1;
 }

@@ -70,5 +70,5 @@ message FileDeleteTransactionBody {
      * The identified file MUST NOT be a "system" file.<br/>
      * This field is REQUIRED.
      */
-    proto.services.FileID fileID = 2;
+    proto.services.FileID fileId = 2;
 }

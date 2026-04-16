@@ -61,7 +61,7 @@ message ScheduleGetInfoQuery {
      * This SHALL identify the schedule to retrieve.<br/>
      * This field is REQUIRED.
      */
-    proto.services.ScheduleID scheduleID = 2;
+    proto.services.ScheduleID scheduleId = 2;
 }
 
 /**
@@ -73,7 +73,7 @@ message ScheduleInfo {
      * <p>
      * This SHALL identify the schedule retrieved.
      */
-    proto.services.ScheduleID scheduleID = 1;
+    proto.services.ScheduleID scheduleId = 1;
 
     oneof data {
         /**
@@ -166,7 +166,7 @@ message ScheduleInfo {
      * <p>
      * This SHALL identify the account that created this schedule.
      */
-    proto.services.AccountID creatorAccountID = 9;
+    proto.services.AccountID creatorAccountId = 9;
 
     /**
      * An account identifier.
@@ -174,7 +174,7 @@ message ScheduleInfo {
      * The identified account SHALL pay the full transaction fee for the
      * scheduled transaction _when it executes_.
      */
-    proto.services.AccountID payerAccountID = 10;
+    proto.services.AccountID payerAccountId = 10;
 
     /**
      * A transaction identifier.
@@ -182,7 +182,7 @@ message ScheduleInfo {
      * This SHALL be recorded as the transaction identifier for the
      * _scheduled_ transaction, if (and when) it is executed.
      */
-    proto.services.TransactionID scheduledTransactionID = 11;
+    proto.services.TransactionID scheduledTransactionId = 11;
 
     /**
      * The ledger ID of the network that generated this response.
