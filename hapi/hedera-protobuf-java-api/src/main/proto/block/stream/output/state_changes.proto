@@ -772,13 +772,6 @@ message MapChangeKey {
         proto.services.AccountID account_id_key = 1;
 
         /**
-         * A change to the token relationships virtual map.<br/>
-         * This map is keyed by the pair of account identifier and
-         * token identifier.
-         */
-        proto.services.TokenAssociation token_relationship_key = 2;
-
-        /**
          * A change to a map keyed by an EntityNumber (which is a whole number).
          * <p>
          * This SHOULD NOT be used. Virtual maps SHOULD be keyed to
