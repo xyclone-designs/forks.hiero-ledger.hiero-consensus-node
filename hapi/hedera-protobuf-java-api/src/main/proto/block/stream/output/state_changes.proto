@@ -765,6 +765,8 @@ message MapDeleteChange {
  * A key identifying a specific entry in a key-value "virtual map".
  */
 message MapChangeKey {
+    reserved 2;
+
     oneof key_choice {
         /**
          * A key for a change affecting a map keyed by an Account identifier.
@@ -878,6 +880,23 @@ message MapChangeKey {
          * A construction-scoped node id key.
          */
         proto.services.state.history.ConstructionNodeID construction_node_id_key = 22;
+
+        /**
+         * A hook id key.
+         */
+        proto.HookId hook_id_key = 23;
+
+        /**
+         * An EVM hook's storage slot key.
+         */
+        com.hedera.hapi.node.state.hooks.EvmHookSlotKey evm_hook_slot_key = 24;
+
+        /**
+         * A change to the token relationships virtual map.<br/>
+         * This map is keyed by the pair of account identifier and
+         * token identifier.
+         */
+        proto.AccountTokenAssociation token_relationship_key = 25;
     }
 }
 
