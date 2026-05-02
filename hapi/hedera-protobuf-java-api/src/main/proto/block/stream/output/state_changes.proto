@@ -51,6 +51,7 @@ import "services/state/blockstream/block_stream_info.proto";
 import "services/state/congestion/congestion_level_starts.proto";
 import "services/state/consensus/topic.proto";
 import "services/state/contract/bytecode.proto";
+import "services/state/contract/evm_hook_state.proto";
 import "services/state/contract/storage_slot.proto";
 import "services/state/file/file.proto";
 import "services/state/recordcache/recordcache.proto";
@@ -884,19 +885,19 @@ message MapChangeKey {
         /**
          * A hook id key.
          */
-        proto.HookId hook_id_key = 23;
+        proto.services.HookID hook_id_key = 23;
 
         /**
          * An EVM hook's storage slot key.
          */
-        com.hedera.hapi.node.state.hooks.EvmHookSlotKey evm_hook_slot_key = 24;
+        proto.services.state.contract.EvmHookSlotKey evm_hook_slot_key = 24;
 
         /**
          * A change to the token relationships virtual map.<br/>
          * This map is keyed by the pair of account identifier and
          * token identifier.
          */
-        proto.AccountTokenAssociation token_relationship_key = 25;
+        proto.services.AccountTokenAssociation token_relationship_key = 25;
     }
 }
 
